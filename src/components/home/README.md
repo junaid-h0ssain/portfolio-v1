@@ -1,30 +1,28 @@
-# HeroSection Component
+# Home Page Components
 
-## Overview
-The HeroSection is a React island component that displays an animated hero section with background effects and text animations using Framer Motion.
+This directory contains components for the home page of the developer portfolio.
 
-## Features
-- Animated background with spotlight effect that follows mouse movement
-- Horizontal and vertical beam animations
-- Floating particle effects
-- Character-by-character text animation for the name
-- Staggered fade-in animations for title and description
-- Responsive CTA buttons with hover effects
-- Scroll indicator with bounce animation
-- Full keyboard accessibility with proper ARIA labels
+## Components
 
-## Props
+### HeroSection.tsx (React Island)
+A React component with animated hero section featuring:
+- Animated background with spotlight effect and beams
+- Character-by-character name animation
+- Smooth fade-in animations for title and description
+- CTA buttons for Projects and Resume
+- Scroll indicator
+- Hydrated with `client:load` for immediate animation
 
+**Props:**
 ```typescript
 interface HeroSectionProps {
-  name: string;        // The person's name (e.g., "John Doe")
-  title: string;       // Job title or role (e.g., "Full Stack Developer")
-  description: string; // Brief description or tagline
+  name: string;
+  title: string;
+  description: string;
 }
 ```
 
-## Usage in Astro
-
+**Usage:**
 ```astro
 ---
 import HeroSection from '../components/home/HeroSection';
@@ -34,28 +32,81 @@ import HeroSection from '../components/home/HeroSection';
   client:load
   name="John Doe"
   title="Full Stack Developer"
-  description="Building amazing web experiences with modern technologies"
+  description="Building amazing web experiences"
 />
 ```
 
-## Hydration Strategy
-Use `client:load` directive for immediate hydration as specified in Requirements 3.3 and 3.5.
+### AboutSection.astro (Static Component)
+A static Astro component displaying bio, skills, and social links:
+- Bio section with personal information
+- Technical skills grid
+- Social media links (GitHub, LinkedIn, Email, Twitter)
+- Additional info card
+- No hydration needed (fully static)
+
+**Props:**
+```typescript
+interface Props {
+  bio?: string;
+  skills?: string[];
+  socialLinks?: {
+    github?: string;
+    linkedin?: string;
+    email?: string;
+    twitter?: string;
+  };
+}
+```
+
+**Default Values:**
+- Bio: CS student description
+- Skills: Array of 8 common technologies
+- Social Links: Placeholder URLs
+
+**Usage:**
+```astro
+---
+import AboutSection from '../components/home/AboutSection.astro';
+---
+
+<AboutSection 
+  bio="Custom bio text"
+  skills={['JavaScript', 'React', 'Node.js']}
+  socialLinks={{
+    github: 'https://github.com/username',
+    linkedin: 'https://linkedin.com/in/username',
+    email: 'mailto:user@example.com'
+  }}
+/>
+```
+
+## Design System
+
+Both components use the same design tokens:
+- **Primary Color**: Sky blue (`primary-*` classes)
+- **Secondary Color**: Purple (`secondary-*` classes)
+- **Background**: Dark gray gradient (`gray-900`, `gray-800`)
+- **Typography**: Inter font family
+- **Spacing**: Consistent padding and margins
+- **Animations**: Smooth transitions and hover effects
 
 ## Accessibility
-- Semantic HTML structure with proper heading hierarchy
-- ARIA labels on all interactive elements
-- Screen reader text for decorative elements
-- Keyboard accessible CTA buttons
-- Proper focus indicators
 
-## Styling
-The component uses Tailwind CSS classes and follows the project's color scheme:
-- Primary colors for accents and buttons
-- Secondary colors for vertical beams
-- Dark gradient background (gray-900 to gray-800)
-- Responsive text sizes and layouts
+Both components follow accessibility best practices:
+- Semantic HTML structure
+- Proper heading hierarchy
+- ARIA labels for interactive elements
+- Keyboard navigation support
+- Focus indicators
+- Screen reader friendly
 
-## Requirements Satisfied
-- Requirement 3.1: Hero section on home page
-- Requirement 3.3: Hydrated with client:load directive
-- Requirement 3.5: Displays hero animation immediately on page load
+## Testing
+
+Unit tests are located in `tests/unit/components/`:
+- `HeroSection.test.tsx` - React component tests
+- `AboutSection.test.ts` - Astro component structure tests
+
+Run tests with:
+```bash
+npm test
+```
