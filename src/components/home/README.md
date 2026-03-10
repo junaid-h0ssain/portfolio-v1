@@ -19,6 +19,8 @@ interface HeroSectionProps {
   name: string;
   title: string;
   description: string;
+  headshotSrc?: string;
+  headshotAlt?: string;
 }
 ```
 
@@ -33,8 +35,14 @@ import HeroSection from '../components/home/HeroSection';
   name="Junaid Hossain"
   title="Backend Developer"
   description="Building amazing software experiences"
+  headshotSrc="/projects/headshot.jpg"
+  headshotAlt="Portrait of Junaid Hossain"
 />
 ```
+
+The hero now includes a portrait panel on the right on larger screens and stacks the image above the fold on mobile.
+
+Use `headshotSrc` to point at your actual photo in `public/` when you want to swap the current image.
 
 ### AboutSection.astro (Static Component)
 A static Astro component displaying bio, skills, and social links:

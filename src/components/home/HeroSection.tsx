@@ -5,9 +5,17 @@ interface HeroSectionProps {
   name: string;
   title: string;
   description: string;
+  headshotSrc?: string;
+  headshotAlt?: string;
 }
 
-export default function HeroSection({ name, title, description }: HeroSectionProps) {
+export default function HeroSection({
+  name,
+  title,
+  description,
+  headshotSrc = '/headshot-placeholder.svg',
+  headshotAlt,
+}: HeroSectionProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   // Generate particles once and memoize to prevent re-creation on every render
@@ -29,6 +37,8 @@ export default function HeroSection({ name, title, description }: HeroSectionPro
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  const resolvedHeadshotAlt = headshotAlt ?? `${name || 'Portfolio'} headshot`;
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-b from-gray-900 via-gray-800 to-gray-900">
@@ -126,107 +136,134 @@ export default function HeroSection({ name, title, description }: HeroSectionPro
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Name Animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-        >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-4">
-            {name.split('').map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.05,
-                  ease: 'easeOut',
-                }}
-                className="inline-block"
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </motion.span>
-            ))}
-          </h1>
-        </motion.div>
-
-        {/* Title Animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-primary-400 mb-6">
-            {title}
-          </h2>
-        </motion.div>
-
-        {/* Description Animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
-        >
-          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            {description}
-          </p>
-        </motion.div>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9, ease: 'easeOut' }}
-          className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <motion.a
-            href="/projects"
-            className="px-8 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-900"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            aria-label="View my projects"
-          >
-            View Projects
-          </motion.a>
-          <motion.a
-            href="/resume"
-            className="px-8 py-3 bg-transparent border-2 border-primary-500 text-primary-400 rounded-lg font-medium hover:bg-primary-500/10 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-900"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            aria-label="View my resume"
-          >
-            View Resume
-          </motion.a>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="mt-16"
-        >
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 px-4 py-16 pb-28 sm:px-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:gap-16 lg:px-8">
+        <div className="text-center lg:text-left">
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="inline-block"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <svg
-              className="w-6 h-6 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-            </svg>
+            <h1 className="text-5xl font-bold text-white sm:text-6xl md:text-7xl">
+              {name.split('').map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.05,
+                    ease: 'easeOut',
+                  }}
+                  className="inline-block"
+                >
+                  {char === ' ' ? '\u00A0' : char}
+                </motion.span>
+              ))}
+            </h1>
           </motion.div>
-          <p className="sr-only">Scroll down to see more content</p>
-        </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+          >
+            <h2 className="mt-4 text-2xl font-semibold text-primary-400 sm:text-3xl md:text-4xl">
+              {title}
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
+          >
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl lg:mx-0">
+              {description}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9, ease: 'easeOut' }}
+            className="mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start"
+          >
+            <motion.a
+              href="/projects"
+              className="px-8 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="View my projects"
+            >
+              View Projects
+            </motion.a>
+            <motion.a
+              href="/resume"
+              className="px-8 py-3 bg-transparent border-2 border-primary-500 text-primary-400 rounded-lg font-medium hover:bg-primary-500/10 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="View my resume"
+            >
+              View Resume
+            </motion.a>
+          </motion.div>
+
+        </div>
+
+        <motion.figure
+          initial={{ opacity: 0, scale: 0.92, y: 24 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.45, ease: 'easeOut' }}
+          className="relative mx-auto w-full max-w-sm"
+        >
+          <div className="absolute inset-0 rounded-4xl bg-linear-to-br from-primary-500/30 via-sky-400/10 to-secondary-500/20 blur-2xl" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-2xl shadow-sky-950/30 backdrop-blur-sm">
+            <div className="relative aspect-4/5 overflow-hidden rounded-3xl bg-slate-900">
+              <img
+                src={headshotSrc}
+                alt={resolvedHeadshotAlt}
+                className="h-full w-full object-cover"
+                loading="eager"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-slate-950 via-slate-950/50 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-sky-200/70">Focused on</p>
+                  <p className="mt-2 text-lg font-semibold text-white">Systems, APIs, and shipping reliably</p>
+                </div>
+                <div className="shrink-0 rounded-full border border-primary-400/40 bg-primary-500/15 px-3 py-1 text-xs font-medium text-primary-100">
+                  Open to work
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.figure>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.2 }}
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          className="inline-block"
+        >
+          <svg
+            className="w-6 h-6 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </motion.div>
+        <p className="sr-only">Scroll down to see more content</p>
+      </motion.div>
     </section>
   );
 }

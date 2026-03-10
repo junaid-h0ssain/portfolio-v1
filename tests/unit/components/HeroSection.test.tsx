@@ -10,6 +10,8 @@ describe('HeroSection Component', () => {
     name: 'John Doe',
     title: 'Full Stack Developer',
     description: 'Building amazing web experiences with modern technologies',
+    headshotSrc: '/headshot-placeholder.svg',
+    headshotAlt: 'Portrait of John Doe',
   };
 
   describe('Content rendering', () => {
@@ -101,6 +103,14 @@ describe('HeroSection Component', () => {
       const svg = container.querySelector('svg[aria-hidden="true"]');
       expect(svg).toBeInTheDocument();
     });
+
+    it('should render the headshot image with alt text', () => {
+      render(<HeroSection {...mockProps} />);
+
+      const headshot = screen.getByAltText('Portrait of John Doe');
+      expect(headshot).toBeInTheDocument();
+      expect(headshot).toHaveAttribute('src', '/headshot-placeholder.svg');
+    });
   });
 
   describe('Animation elements', () => {
@@ -118,6 +128,13 @@ describe('HeroSection Component', () => {
       // Content should have z-10 to be above background
       const content = container.querySelector('.relative.z-10');
       expect(content).toBeInTheDocument();
+    });
+
+    it('should render the portrait panel copy', () => {
+      render(<HeroSection {...mockProps} />);
+
+      expect(screen.getByText('Open to work')).toBeInTheDocument();
+      expect(screen.getByText('Systems, APIs, and shipping reliably')).toBeInTheDocument();
     });
   });
 
