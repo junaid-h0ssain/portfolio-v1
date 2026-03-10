@@ -1,0 +1,62 @@
+---
+title: "Task Management Application"
+description: "A full-stack task management app with real-time collaboration, built with React, Node.js, and PostgreSQL."
+technologies: ["React", "Node.js", "PostgreSQL", "WebSocket", "TypeScript"]
+repositoryUrl: "https://github.com/example/task-manager"
+liveUrl: "https://task-manager-demo.com"
+thumbnail: "/projects/task-manager-thumb.jpg"
+featured: true
+startDate: 2023-06-01
+endDate: 2023-12-15
+---
+
+# Task Management Application
+
+A collaborative task management platform with real-time updates and team features.
+
+## Project Overview
+
+Built to help teams organize and track work efficiently, this application provides a clean interface for managing tasks, projects, and team collaboration.
+
+## Core Features
+
+- **Real-time Collaboration**: WebSocket-based live updates
+- **Task Organization**: Projects, tags, priorities, and due dates
+- **Team Management**: User roles and permissions
+- **Activity Tracking**: Audit logs and notifications
+
+## Architecture
+
+The application follows a modern full-stack architecture:
+
+```
+Frontend (React) ←→ REST API (Node.js) ←→ PostgreSQL
+                ↓
+            WebSocket Server
+```
+
+## Technical Implementation
+
+### Real-time Updates
+
+```typescript
+// WebSocket connection for live updates
+const socket = io(SERVER_URL);
+
+socket.on('task:updated', (task) => {
+  updateTaskInState(task);
+});
+```
+
+### Database Schema
+
+Designed for scalability with proper indexing and relationships:
+- Users table with authentication
+- Projects and tasks with foreign keys
+- Activity logs for audit trail
+
+## Lessons Learned
+
+- Real-time features require careful state management
+- Database indexing is crucial for query performance
+- User experience matters more than feature count
