@@ -13,7 +13,7 @@ const isGitHubPagesBuild = process.env.DEPLOY_TARGET === 'github-pages';
 export default defineConfig({
   output: 'static',
   site: 'https://junaid-h0ssain.github.io',
-  base: '/portfolio-v1',
+  base: '/',
   integrations: [react(), mdx()],
 
   vite: {
