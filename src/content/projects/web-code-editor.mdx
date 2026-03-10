@@ -1,0 +1,84 @@
+---
+title: "Web Code Editor"
+description: "A browser-based HTML, CSS, and JavaScript playground with live preview, console capture, note-taking, and local persistence."
+technologies: ["HTML", "CSS", "JavaScript", "Ace Editor", "Cloudflare Workers", "LocalStorage"]
+repositoryUrl: "https://github.com/junaid-h0ssain/web-code-editor"
+liveUrl: "https://web-code-editor.junadhon81.workers.dev/"
+thumbnail: "/projects/web-code-editor-thumb.svg"
+featured: true
+startDate: 2026-01-10
+---
+
+# Web Code Editor
+
+Web Code Editor is a small in-browser playground for writing HTML, CSS, and JavaScript in one place and seeing the result immediately. I built it to focus on the core editing loop: write code, run it, inspect the output, and keep the session state without adding unnecessary project setup.
+
+## Overview
+
+The app is organized around a simple three-part workflow.
+
+On the left, there is a notes area for scratch ideas and reminders. In the center, the main editor switches between HTML, CSS, and JavaScript tabs powered by Ace. On the right, a preview panel and output log make it possible to test changes quickly without leaving the page.
+
+The result feels closer to a lightweight sandbox than a static demo. It is useful for quick experiments, UI sketches, and small frontend debugging sessions.
+
+## Core Features
+
+- **Tabbed code editors** for HTML, CSS, and JavaScript
+- **Live preview iframe** for running the current document in the browser
+- **Console output capture** so logs and runtime errors stay visible in the UI
+- **Notes panel** for storing ideas alongside the code session
+- **Save and load flow** using JSON export and import
+- **Local persistence** through `localStorage` so work survives refreshes
+
+## Technical Approach
+
+I kept the architecture intentionally small and browser-native.
+
+- **HTML** defines the overall panel layout and controls
+- **CSS** handles the glassy dashboard styling, responsive layout, and editor presentation
+- **Vanilla JavaScript** coordinates editor state, preview generation, persistence, and console forwarding
+- **Ace Editor** provides a better editing experience than plain textareas while keeping the app lightweight
+- **Cloudflare Workers deployment** makes the project easy to publish as a fast static experience
+
+This approach kept the project focused on interaction design and browser behavior instead of framework setup.
+
+## Live Preview and Output Handling
+
+The most important part of the project is the feedback loop. When the user clicks Run, the current HTML, CSS, and JavaScript are combined into a single document and injected into the preview iframe.
+
+```javascript
+function buildPreviewDoc() {
+  const { html, css, js } = getEditorState();
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <style>${css || ''}</style>
+</head>
+<body>
+${html || ''}
+<script>${js || ''}</script>
+</body>
+</html>`;
+}
+```
+
+To make debugging easier, the preview also forwards console activity and runtime errors back to the parent app. That means users can see feedback in the output panel instead of opening DevTools every time they test something.
+
+## Challenges and Decisions
+
+One of the main design decisions was keeping execution contained to the browser tab. That limited the scope in a good way: the app does not try to become a full IDE, but it still supports the most useful workflow for quick frontend experiments.
+
+Another challenge was preserving state without introducing a backend. Saving the editor contents, notes, and imported JSON locally gave the app a more practical feel while keeping deployment simple.
+
+There is also a UX tradeoff in using embedded editors and an iframe preview. The app becomes more interactive, but focus behavior, cursor handling, and small editor quirks need more polishing than a plain form-based interface.
+
+## What I Learned
+
+- Strong browser tooling can be built with plain JavaScript when the scope is tight
+- Sandboxed iframe previews are a practical way to separate user code from the host UI
+- Small persistence features like autosave and JSON export add a lot of real usability
+- Editor ergonomics matter more than expected in projects centered on writing code
+
+## Outcome
+
+Web Code Editor helped me practice product thinking with frontend fundamentals: layout, state management, browser APIs, local persistence, and runtime feedback. It is a compact project, but it ties together enough moving pieces to feel like a real tool rather than just a styling exercise.
