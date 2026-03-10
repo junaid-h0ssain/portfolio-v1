@@ -47,7 +47,8 @@ describe('Property 18: Semantic HTML Structure', () => {
     }
     
     // 5. Content sections should use <section> or <article> elements
-    if (pageStructure.contentSections.length > 0) {
+    // Only check if main content is present (sections are rendered inside main)
+    if (pageStructure.hasMainContent && pageStructure.contentSections.length > 0) {
       const hasSectionOrArticle = html.includes('<section') || html.includes('<article');
       expect(hasSectionOrArticle).toBe(true);
     }
