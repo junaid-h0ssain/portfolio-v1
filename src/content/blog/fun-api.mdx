@@ -1,0 +1,47 @@
+---
+title: "Building FunAPI: A Deep Dive into WSGI"
+description: "Exploring the inner workings of Python web frameworks by building one from scratch using the WSGI standard."
+pubDate: 2026-03-10
+tags: ["python", "web-framework", "wsgi", "backend"]
+author: "Junaid"
+---
+
+# Building FunAPI: A Deep Dive into WSGI
+
+Modern Python frameworks like Flask or FastAPI are incredible, but they often feel like magic. To truly understand how a request turns into a response, I decided to build **FunAPI**—a minimal, decorator-based web framework built directly on the WSGI standard.
+
+## What is WSGI?
+
+WSGI (Web Server Gateway Interface) is the specification that allows Python web applications to communicate with web servers like Gunicorn or uWSGI. At its core, a WSGI application is just a callable that takes an `environ` dictionary and a `start_response` function.
+
+```python
+def simple_app(environ, start_response):
+    status = '200 OK'
+    headers = [('Content-Type', 'text/plain')]
+    start_response(status, headers)
+    return [b"Hello, WSGI!"]
+```
+
+## The Architecture of FunAPI
+
+In FunAPI, the goal was to abstract this low-level interface into something familiar: decorators.
+
+### 1. The Request and Response Wrappers
+Instead of dealing with the raw `environ` dict, I created a `Request` class to parse paths and queries, and a `Response` class to manage headers and status codes before they are sent back to the server.
+
+### 2. The Routing Engine
+Using the `parse` library, FunAPI supports parameterized routes:
+```python
+@app.get("/users/{id}")
+def get_user(req, res, id):
+    res.send(f"User ID: {id}", "200 OK")
+```
+
+### 3. Middleware
+Middleware in FunAPI is designed for response mutation. Global middleware runs on every request, while route-level middleware can be specific to a single endpoint.
+
+## Lessons Learned
+
+Building FunAPI taught me that frameworks aren't just about routing—they're about balancing abstraction with performance. Dealing with the `environ` dictionary directly gave me a new appreciation for the "magic" that happens in production-grade frameworks.
+
+Check out the full source code on [GitHub](https://github.com/junaid-h0ssain/fun-api).

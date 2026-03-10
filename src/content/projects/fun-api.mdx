@@ -1,0 +1,60 @@
+---
+title: "FunAPI"
+description: "A minimal, decorator-based Python web framework built on top of the WSGI standard for learning purposes."
+technologies: ["Python", "WSGI", "Gunicorn", "Parse"]
+repositoryUrl: "https://github.com/junaid-h0ssain/fun-api"
+liveUrl: "https://pypi.org/project/parse/"
+thumbnail: "/projects/funapi-thumb.jpg"
+featured: true
+startDate: 2026-03-01
+endDate: 2026-03-10
+---
+
+# FunAPI
+
+A educational Python web framework built from scratch to explore the WSGI protocol and modern routing patterns.
+
+## Project Overview
+
+Built to demystify how frameworks like Flask operate, FunAPI provides a clean, decorator-based interface for building web applications in under 100 lines of code.
+
+## Core Features
+
+- **Decorator-based Routing**: Easy registration of GET, POST, PUT, and DELETE routes.
+- **Parameterized Paths**: Support for variables in URLs like `/users/{id}` using the `parse` library.
+- **Middleware System**: Global and route-level middleware for response mutation.
+- **WSGI Compliant**: Runs on any standard WSGI server like Gunicorn.
+
+## Architecture
+
+The framework is structured into three core components:
+
+```
+Request (Python dict Wrapper) ←→ FunAPI (Router/WSGI Callable) ←→ Response (WSGI State)
+                                     ↓
+                                Gunicorn/uWSGI
+```
+
+## Technical Implementation
+
+### The WSGI Entry Point
+
+The `FunAPI` class implements `__call__`, making it a valid WSGI application that directy interacts with the server.
+
+```python
+def __call__(self, environ, start_response):
+    response = Response()
+    request = Request(environ)
+    # ... routing and middleware logic ...
+    return [response.as_wsgi(start_response)]
+```
+
+### Route Registration
+
+Dynamic routing is handled via a nested dictionary that maps paths and methods to handler functions.
+
+## Lessons Learned
+
+- Frameworks are fundamentally about managing the state transition from a raw request to a structured response.
+- WSGI is an incredibly powerful and simple standard that still powers the modern Python web ecosystem.
+- Minimalist abstractions can provide significant developer experience improvements.
