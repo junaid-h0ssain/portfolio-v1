@@ -30,9 +30,9 @@ import HeroSection from '../components/home/HeroSection';
 
 <HeroSection 
   client:load
-  name="John Doe"
-  title="Full Stack Developer"
-  description="Building amazing web experiences"
+  name="Junaid Hossain"
+  title="Backend Developer"
+  description="Building amazing software experiences"
 />
 ```
 
@@ -71,11 +71,11 @@ import AboutSection from '../components/home/AboutSection.astro';
 
 <AboutSection 
   bio="Custom bio text"
-  skills={['JavaScript', 'React', 'Node.js']}
+  skills={['Java', 'Go', 'TypeScript']}
   socialLinks={{
-    github: 'https://github.com/username',
-    linkedin: 'https://linkedin.com/in/username',
-    email: 'mailto:user@example.com'
+    github: 'https://github.com/junaid-h0ssain',
+    linkedin: 'https://www.linkedin.com/in/junaid-hossain-08a48a391/',
+    email: 'mailto:junaid0182@outlook.com'
   }}
 />
 ```
