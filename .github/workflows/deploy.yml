@@ -19,6 +19,8 @@ jobs:
 
       - name: Install, build, and upload your site
         uses: withastro/action@v5
+        with:
+          build-cmd: npm run build:pages
         # In 2026, this action automatically detects your 
         # lockfile (npm, pnpm, yarn, or bun)
 

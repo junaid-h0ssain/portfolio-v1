@@ -7,6 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 import cloudflare from '@astrojs/cloudflare';
 
+const isGitHubPagesBuild = process.env.DEPLOY_TARGET === 'github-pages';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
@@ -18,5 +20,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  adapter: cloudflare()
+  ...(isGitHubPagesBuild ? {} : { adapter: cloudflare() })
 });
