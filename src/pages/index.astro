@@ -1,17 +1,22 @@
 ---
+// Home Page - Main landing page with hero and about sections
+// Validates Requirement 3.1 - Display hero section and about section on home page
 
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import HeroSection from '../components/home/HeroSection';
+import AboutSection from '../components/home/AboutSection.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="John Doe - Full Stack Developer & CS Student"
+  description="Welcome to my portfolio. I'm a Computer Science student passionate about building scalable web applications and exploring cutting-edge technologies."
+>
+  <HeroSection
+    client:load
+    name="John Doe"
+    title="Full Stack Developer & CS Student"
+    description="Building elegant solutions to complex problems. Passionate about web technologies, cloud architecture, and creating impactful digital experiences."
+  />
+  
+  <AboutSection />
+</BaseLayout>
