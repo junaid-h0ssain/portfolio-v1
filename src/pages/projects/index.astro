@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import ProjectsGrid from '../../components/projects/ProjectsGrid.astro';
+
+// Fetch all projects and sort by featured flag (true first) and startDate descending
+const allProjects = await getCollection('projects');
+const sortedProjects = allProjects.sort((a, b) => {
+  // Featured projects come first
+  if (a.data.featured !== b.data.featured) {
+    return a.data.featured ? -1 : 1;
+  }
+  // Then sort by startDate descending (newest first)
+  return b.data.startDate.getTime() - a.data.startDate.getTime();
+});
+---
+
+<BaseLayout 
+  title="Projects - Developer Portfolio" 
+  description="Explore my portfolio of web development projects, applications, and open-source contributions."
+>
+  <div class="container mx-auto px-4 py-12">
+    <header class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Projects
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        A showcase of my work and contributions
+      </p>
+    </header>
+    
+    <ProjectsGrid projects={sortedProjects} />
+  </div>
+</BaseLayout>
