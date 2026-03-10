@@ -70,11 +70,8 @@ describe('MobileMenu Component', () => {
         expect(screen.getByRole('dialog')).toBeInTheDocument();
       });
       
-      // Click overlay (the div before the dialog)
-      const overlay = document.querySelector('.fixed.inset-0.bg-black\\/50');
-      if (overlay) {
-        fireEvent.click(overlay);
-      }
+      const overlay = screen.getByTestId('mobile-menu-overlay');
+      fireEvent.click(overlay);
       
       await waitFor(() => {
         expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
@@ -171,9 +168,8 @@ describe('MobileMenu Component', () => {
         expect(screen.getByRole('dialog')).toBeInTheDocument();
       });
       
-      // All links should be focusable
-      const links = screen.getAllByRole('link');
-      expect(links.length).toBe(4);
+      const links = mockLinks.map((link) => screen.getByRole('link', { name: link.label }));
+      expect(links).toHaveLength(mockLinks.length);
       
       // Links should be keyboard accessible
       for (const link of links) {
