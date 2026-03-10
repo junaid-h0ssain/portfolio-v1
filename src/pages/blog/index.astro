@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import BlogList from '../../components/blog/BlogList.astro';
+
+// Fetch all blog posts and sort by pubDate descending
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => 
+  b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+---
+
+<BaseLayout 
+  title="Blog - Developer Portfolio" 
+  description="Read my latest blog posts about web development, programming, and technology."
+>
+  <div class="container mx-auto px-4 py-12">
+    <header class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Blog
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        Thoughts, tutorials, and insights on web development
+      </p>
+    </header>
+    
+    <BlogList posts={sortedPosts} />
+  </div>
+</BaseLayout>

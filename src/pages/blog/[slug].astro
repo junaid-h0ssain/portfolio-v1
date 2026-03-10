@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog');
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const { title, description, pubDate, tags, author, image } = post.data;
+
+// Format date
+const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<BaseLayout title={title} description={description} image={image}>
+  <article class="container mx-auto px-4 py-12 max-w-4xl">
+    <header class="mb-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        {title}
+      </h1>
+      
+      <div class="flex flex-wrap items-center gap-4 text-gray-600 dark:text-gray-400 mb-4">
+        <time datetime={pubDate.toISOString()} class="text-sm">
+          {formattedDate}
+        </time>
+        {author && (
+          <>
+            <span class="text-gray-400">•</span>
+            <span class="text-sm">By {author}</span>
+          </>
+        )}
+      </div>
+      
+      <div class="flex flex-wrap gap-2 mb-6">
+        {tags.map((tag) => (
+          <span class="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </header>
+    
+    <div class="prose prose-lg dark:prose-invert max-w-none
+                prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white
+                prose-p:text-gray-700 dark:prose-p:text-gray-300
+                prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+                prose-code:text-pink-600 dark:prose-code:text-pink-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+                prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:text-gray-100
+                prose-strong:text-gray-900 dark:prose-strong:text-white
+                prose-ul:text-gray-700 dark:prose-ul:text-gray-300
+                prose-ol:text-gray-700 dark:prose-ol:text-gray-300
+                prose-li:text-gray-700 dark:prose-li:text-gray-300">
+      <Content />
+    </div>
+    
+    <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+      <a 
+        href="/blog" 
+        class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+      >
+        ← Back to all posts
+      </a>
+    </footer>
+  </article>
+</BaseLayout>
