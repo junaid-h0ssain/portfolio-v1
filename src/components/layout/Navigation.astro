@@ -1,0 +1,60 @@
+---
+import MobileMenu from './MobileMenu';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/resume', label: 'Resume' },
+];
+
+const isActive = (href: string) => {
+  if (href === '/') {
+    return currentPath === '/';
+  }
+  return currentPath.startsWith(href);
+};
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+  <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo/Brand -->
+      <div class="flex-shrink-0">
+        <a href="/" class="text-xl font-bold text-gray-900 dark:text-white">
+          Portfolio
+        </a>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden md:block">
+        <div class="flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              class={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
+                isActive(link.href)
+                  ? 'text-primary-600 dark:text-primary-400'
+                  : 'text-gray-700 dark:text-gray-300'
+              }`}
+              aria-current={isActive(link.href) ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Mobile Menu Toggle -->
+      <div class="md:hidden">
+        <MobileMenu links={navLinks} currentPath={currentPath} client:visible />
+      </div>
+    </div>
+  </nav>
+</header>
