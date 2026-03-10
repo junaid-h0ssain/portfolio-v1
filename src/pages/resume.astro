@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import Resume from '../components/resume/Resume.astro';
+import resumeData from '../data/resume.json';
+import type { ResumeData } from '../types/resume';
+
+const data: ResumeData = resumeData;
+---
+
+<BaseLayout
+  title="Resume - Alex Johnson"
+  description="Professional resume of Alex Johnson, Full Stack Developer"
+  image="/og-resume.png"
+>
+  <head>
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Resume - Alex Johnson" />
+    <meta property="og:description" content="Professional resume of Alex Johnson, Full Stack Developer" />
+    <meta name="print-color-adjust" content="exact" />
+    <meta name="webkit-print-color-adjust" content="exact" />
+    <style>
+      @media print {
+        @page {
+          margin: 0.5in;
+          size: letter;
+        }
+        
+        body {
+          margin: 0;
+          padding: 0;
+          background: white;
+        }
+      }
+    </style>
+  </head>
+  
+  <main class="min-h-screen bg-gray-50 py-8 print:bg-white print:py-0">
+    <div class="print:max-w-full">
+      <Resume data={data} />
+    </div>
+  </main>
+</BaseLayout>

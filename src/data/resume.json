@@ -1,0 +1,106 @@
+{
+  "personalInfo": {
+    "name": "Alex Johnson",
+    "title": "Full Stack Developer",
+    "email": "alex@example.com",
+    "phone": "+1 (555) 123-4567",
+    "location": "San Francisco, CA",
+    "website": "https://alexjohnson.dev",
+    "github": "https://github.com/alexjohnson",
+    "linkedin": "https://linkedin.com/in/alexjohnson"
+  },
+  "education": [
+    {
+      "institution": "University of California, Berkeley",
+      "degree": "Bachelor of Science",
+      "field": "Computer Science",
+      "startDate": "2019",
+      "endDate": "2023",
+      "gpa": "3.8",
+      "achievements": [
+        "Dean's List all semesters",
+        "Recipient of Computer Science Excellence Award"
+      ]
+    },
+    {
+      "institution": "Online Learning Platform",
+      "degree": "Professional Certificate",
+      "field": "Full Stack Web Development",
+      "startDate": "2022",
+      "endDate": "2023"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Tech Innovations Inc.",
+      "position": "Senior Full Stack Developer",
+      "startDate": "2023",
+      "endDate": "Present",
+      "description": "Leading development of scalable web applications using modern technologies",
+      "achievements": [
+        "Architected microservices infrastructure reducing deployment time by 60%",
+        "Mentored 3 junior developers on best practices and code quality",
+        "Implemented automated testing pipeline increasing code coverage to 85%"
+      ],
+      "technologies": ["React", "Node.js", "TypeScript", "PostgreSQL", "Docker", "AWS"]
+    },
+    {
+      "company": "Digital Solutions Ltd.",
+      "position": "Full Stack Developer",
+      "startDate": "2022",
+      "endDate": "2023",
+      "description": "Developed and maintained multiple client-facing web applications",
+      "achievements": [
+        "Built responsive web applications serving 50,000+ monthly users",
+        "Optimized database queries improving application performance by 40%",
+        "Collaborated with design team to implement pixel-perfect UI components"
+      ],
+      "technologies": ["React", "Express.js", "MongoDB", "Tailwind CSS", "Git"]
+    },
+    {
+      "company": "StartUp Labs",
+      "position": "Junior Developer",
+      "startDate": "2021",
+      "endDate": "2022",
+      "description": "Contributed to development of early-stage startup products",
+      "achievements": [
+        "Implemented core features for mobile-first web application",
+        "Participated in code reviews and contributed to documentation",
+        "Fixed 100+ bugs and improved application stability"
+      ],
+      "technologies": ["JavaScript", "React", "Firebase", "CSS"]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Frontend",
+      "skills": ["React", "TypeScript", "Tailwind CSS", "Astro", "Next.js", "Vue.js"]
+    },
+    {
+      "category": "Backend",
+      "skills": ["Node.js", "Express.js", "Python", "PostgreSQL", "MongoDB", "Firebase"]
+    },
+    {
+      "category": "DevOps & Tools",
+      "skills": ["Docker", "AWS", "Git", "GitHub Actions", "CI/CD", "Linux"]
+    },
+    {
+      "category": "Soft Skills",
+      "skills": ["Team Leadership", "Problem Solving", "Communication", "Project Management"]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "date": "2023",
+      "url": "https://aws.amazon.com/certification/"
+    },
+    {
+      "name": "Google Cloud Professional Data Engineer",
+      "issuer": "Google Cloud",
+      "date": "2022",
+      "url": "https://cloud.google.com/certification/"
+    }
+  ]
+}
