@@ -31,7 +31,7 @@ export default function HeroSection({ name, title, description }: HeroSectionPro
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-b from-gray-900 via-gray-800 to-gray-900">
       {/* Animated Background Beams */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Spotlight Effect */}
@@ -57,7 +57,7 @@ export default function HeroSection({ name, title, description }: HeroSectionPro
           {[...Array(5)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent"
+              className="absolute h-px bg-linear-to-r from-transparent via-primary-500/50 to-transparent"
               style={{
                 width: '100%',
                 top: `${20 + i * 15}%`,
@@ -82,7 +82,7 @@ export default function HeroSection({ name, title, description }: HeroSectionPro
           {[...Array(3)].map((_, i) => (
             <motion.div
               key={`v-${i}`}
-              className="absolute w-px bg-gradient-to-b from-transparent via-secondary-500/30 to-transparent"
+              className="absolute w-px bg-linear-to-b from-transparent via-secondary-500/30 to-transparent"
               style={{
                 height: '100%',
                 left: `${30 + i * 20}%`,

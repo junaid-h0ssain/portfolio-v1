@@ -1,0 +1,105 @@
+{
+  "personalInfo": {
+    "name": "Junaid Hossain",
+    "title": "Junior Backend Developer",
+    "email": "junaid0182@outlook.com",
+    "phone": "+880 1705150710",
+    "location": "Chittagong, Bangladesh",
+    "website": "https://junaid-h0ssain.github.io/",
+    "github": "https://github.com/junaid-h0ssain",
+    "linkedin": "https://www.linkedin.com/in/junaid-hossain-08a48a391/"
+  },
+  "education": [
+    {
+      "institution": "East Delta University",
+      "degree": "Bachelor of Computer Science and Engineering",
+      "field": "Computer Science",
+      "startDate": "2022",
+      "endDate": "2026",
+      "gpa": "3.72",
+      "achievements": [
+        "Dean's List multiple semesters",
+        "Chairman's list for academic excellence"
+      ]
+    },
+    {
+      "institution": "Halishahar Cantonment School and College",
+      "degree": "Higher School Certificate (HSC)",
+      "field": "Science",
+      "startDate": "2018",
+      "endDate": "2020"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Teeth Care Center",
+      "position": "Retail Sales Associate",
+      "startDate": "2020",
+      "endDate": "2021",
+      "description": "Provided excellent customer service and managed inventory for a busy retail store",
+      "achievements": [
+        "Consistently exceeded monthly sales targets by 5%",
+        "Received Employee of the Month award twice for outstanding performance"
+      ],
+      "technologies": []
+    },
+    { 
+      "company": "Digital Solutions Ltd.",
+      "position": "Full Stack Developer",
+      "startDate": "2022",
+      "endDate": "2023",
+      "description": "Developed and maintained multiple client-facing web applications",
+      "achievements": [
+        "Built responsive web applications serving 50,000+ monthly users",
+        "Optimized database queries improving application performance by 40%",
+        "Collaborated with design team to implement pixel-perfect UI components"
+      ],
+      "technologies": ["React", "Express.js", "MongoDB", "Tailwind CSS", "Git"]
+    },
+    {
+      "company": "StartUp Labs",
+      "position": "Junior Developer",
+      "startDate": "2021",
+      "endDate": "2022",
+      "description": "Contributed to development of early-stage startup products",
+      "achievements": [
+        "Implemented core features for mobile-first web application",
+        "Participated in code reviews and contributed to documentation",
+        "Fixed 100+ bugs and improved application stability"
+      ],
+      "technologies": ["JavaScript", "React", "Firebase", "CSS"]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Frontend",
+      "skills": ["React", "TypeScript", "Tailwind CSS", "Astro", "Next.js", "Vue.js"]
+    },
+    {
+      "category": "Backend",
+      "skills": ["Node.js", "Express.js", "Python", "PostgreSQL", "MongoDB", "Firebase"]
+    },
+    {
+      "category": "DevOps & Tools",
+      "skills": ["Docker", "AWS", "Git", "GitHub Actions", "CI/CD", "Linux"]
+    },
+    {
+      "category": "Soft Skills",
+      "skills": ["Team Leadership", "Problem Solving", "Communication", "Project Management"]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "date": "2023",
+      "url": "https://aws.amazon.com/certification/"
+    },
+    {
+      "name": "Google Cloud Professional Data Engineer",
+      "issuer": "Google Cloud",
+      "date": "2022",
+      "url": "https://cloud.google.com/certification/"
+    }
+  ]
+}

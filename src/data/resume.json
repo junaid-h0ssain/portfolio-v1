@@ -1,106 +1,109 @@
 {
   "personalInfo": {
-    "name": "Alex Johnson",
-    "title": "Full Stack Developer",
-    "email": "alex@example.com",
-    "phone": "+1 (555) 123-4567",
-    "location": "San Francisco, CA",
-    "website": "https://alexjohnson.dev",
-    "github": "https://github.com/alexjohnson",
-    "linkedin": "https://linkedin.com/in/alexjohnson"
+    "name": "Junaid Hossain",
+    "title": "Junior Backend Developer",
+    "email": "junaid0182@outlook.com",
+    "phone": "+880 1705150710",
+    "location": "Chittagong, Bangladesh",
+    "website": "https://junaid-h0ssain.github.io/",
+    "github": "https://github.com/junaid-h0ssain",
+    "linkedin": "https://www.linkedin.com/in/junaid-hossain-08a48a391/"
   },
   "education": [
     {
-      "institution": "University of California, Berkeley",
-      "degree": "Bachelor of Science",
+      "institution": "East Delta University",
+      "degree": "Bachelor of Computer Science and Engineering",
       "field": "Computer Science",
-      "startDate": "2019",
-      "endDate": "2023",
-      "gpa": "3.8",
+      "startDate": "2022",
+      "endDate": "2026",
+      "gpa": "3.72/4.00",
       "achievements": [
-        "Dean's List all semesters",
-        "Recipient of Computer Science Excellence Award"
+        "Dean's List all semesters but the first two",
+        "Chairman's list for academic excellence"
       ]
     },
     {
-      "institution": "Online Learning Platform",
-      "degree": "Professional Certificate",
-      "field": "Full Stack Web Development",
-      "startDate": "2022",
-      "endDate": "2023"
+      "institution": "Halishahar Cantonment School and College",
+      "degree": "Higher School Certificate (HSC)",
+      "field": "Science",
+      "startDate": "2018",
+      "endDate": "2020",
+      "gpa": "5.00/5.00",
+      "achievements": [
+        "Sport Prefect",
+        "Badminton Team Captain"
+      ]
+    },
+    {
+      "institution": "Halishahar Cantonment School and College",
+      "degree": "Secondary School Certificate (SSC)",
+      "field": "Science",
+      "startDate": "2016",
+      "endDate": "2018",
+      "gpa": "5.00/5.00",
+      "achievements": [
+        "Class Representative"
+      ]
     }
   ],
   "experience": [
     {
-      "company": "Tech Innovations Inc.",
-      "position": "Senior Full Stack Developer",
-      "startDate": "2023",
-      "endDate": "Present",
-      "description": "Leading development of scalable web applications using modern technologies",
+      "company": "Teeth Care Center",
+      "position": "Retail Sales Associate",
+      "startDate": "2020",
+      "endDate": "2021",
+      "description": "Provided excellent customer service and managed inventory for a busy retail store",
       "achievements": [
-        "Architected microservices infrastructure reducing deployment time by 60%",
-        "Mentored 3 junior developers on best practices and code quality",
-        "Implemented automated testing pipeline increasing code coverage to 85%"
+        "Consistently exceeded monthly sales targets by 5%",
+        "Received Employee of the Month award twice for outstanding performance"
       ],
-      "technologies": ["React", "Node.js", "TypeScript", "PostgreSQL", "Docker", "AWS"]
-    },
-    {
-      "company": "Digital Solutions Ltd.",
-      "position": "Full Stack Developer",
-      "startDate": "2022",
-      "endDate": "2023",
-      "description": "Developed and maintained multiple client-facing web applications",
-      "achievements": [
-        "Built responsive web applications serving 50,000+ monthly users",
-        "Optimized database queries improving application performance by 40%",
-        "Collaborated with design team to implement pixel-perfect UI components"
-      ],
-      "technologies": ["React", "Express.js", "MongoDB", "Tailwind CSS", "Git"]
-    },
-    {
-      "company": "StartUp Labs",
-      "position": "Junior Developer",
-      "startDate": "2021",
-      "endDate": "2022",
-      "description": "Contributed to development of early-stage startup products",
-      "achievements": [
-        "Implemented core features for mobile-first web application",
-        "Participated in code reviews and contributed to documentation",
-        "Fixed 100+ bugs and improved application stability"
-      ],
-      "technologies": ["JavaScript", "React", "Firebase", "CSS"]
+      "technologies": []
     }
   ],
   "skills": [
     {
       "category": "Frontend",
-      "skills": ["React", "TypeScript", "Tailwind CSS", "Astro", "Next.js", "Vue.js"]
+      "skills": ["React", "TypeScript", "Tailwind CSS", "Astro", "Svelte"]
     },
     {
       "category": "Backend",
-      "skills": ["Node.js", "Express.js", "Python", "PostgreSQL", "MongoDB", "Firebase"]
+      "skills": ["Java", "Spring Boot", "PostgreSQL", "GO", "Gin"]
     },
     {
       "category": "DevOps & Tools",
-      "skills": ["Docker", "AWS", "Git", "GitHub Actions", "CI/CD", "Linux"]
+      "skills": ["Docker", "AWS", "Dockploy", "Git", "GitHub Actions", "CI/CD", "Linux"]
+    },
+    {
+      "category": "Mobile Development",
+      "skills": ["Dart", "Flutter", "Android Studio"]
     },
     {
       "category": "Soft Skills",
-      "skills": ["Team Leadership", "Problem Solving", "Communication", "Project Management"]
+      "skills": ["Adaptability", "Problem Solving", "Communication", "Management"]
+    },
+    {
+      "category": "Languages",
+      "skills": ["English (Fluent)", "Bengali (Native)", "Hindi (Conversational)"]
     }
   ],
   "certifications": [
     {
-      "name": "AWS Certified Solutions Architect",
-      "issuer": "Amazon Web Services",
-      "date": "2023",
-      "url": "https://aws.amazon.com/certification/"
+      "name": "Oracle Cloud Infrastructure 2025 Certified Foundations Associate",
+      "issuer": "Oracle",
+      "date": "2025",
+      "url": "https://www.linkedin.com/redir/redirect/?url=https%3A%2F%2Fcatalog-education.oracle.com%2Fapex%2Ff%3Fp%3D1010%3A2%3A116916285782548%3A%3A%3A%3AP2_AUTHCODE%2CP2_AUTH_KEY%2CP2_ARG_INVALID_CNT%3AMO273362nO47l%2CflCcP273290hmcx5990qkle&urlhash=yOJe&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BoO7%2FeihjR8KOjs%2FrBaBfEw%3D%3D"
     },
     {
-      "name": "Google Cloud Professional Data Engineer",
-      "issuer": "Google Cloud",
-      "date": "2022",
-      "url": "https://cloud.google.com/certification/"
+      "name": "Dart & Flutter | Complete Flutter Development Course",
+      "issuer": "Udemy",
+      "date": "2025",
+      "url": "https://www.udemy.com/certificate/UC-91a8bd9b-329c-427b-874f-ddce5df7c17b/"
+    },
+    {
+      "name": "Mobile App Development - Android App Development for Beginners",
+      "issuer": "Simplilearn",
+      "date": "2025",
+      "url": "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzMjIwIiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvNzkyMDE1M184MjU0NzQ0MTczOTgyMDA4ODE0Ny5wbmciLCJ1c2VybmFtZSI6Ikp1bmFpZCBIb3NzYWluIn0%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F6003%2FMobile-App-Development---Android-App-Development-for-Beginners%2Fcertificate%2Fdownload-skillup&%24web_only=true"
     }
   ]
 }

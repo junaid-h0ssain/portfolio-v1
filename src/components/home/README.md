@@ -40,7 +40,7 @@ import HeroSection from '../components/home/HeroSection';
 A static Astro component displaying bio, skills, and social links:
 - Bio section with personal information
 - Technical skills grid
-- Social media links (GitHub, LinkedIn, Email, Twitter)
+- Social media links (GitHub, LinkedIn, Email, Instagram)
 - Additional info card
 - No hydration needed (fully static)
 
@@ -53,7 +53,7 @@ interface Props {
     github?: string;
     linkedin?: string;
     email?: string;
-    twitter?: string;
+    instagram?: string;
   };
 }
 ```
