@@ -16,7 +16,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 const { title, description, pubDate, tags, author, image } = post.data;
 
 // Format date
@@ -25,56 +25,421 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric'
 });
+
+// Reading time: ~200 wpm average
+const rawBody = post.body ?? '';
+const wordCount = rawBody.trim().split(/\s+/).length;
+const readingMins = Math.max(1, Math.round(wordCount / 200));
+
+// Table of contents — h2 and h3 only
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
 ---
 
 <BaseLayout title={title} description={description} image={image}>
-  <article class="container mx-auto px-4 py-12 max-w-4xl">
-    <header class="mb-8">
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-        {title}
-      </h1>
-      
-      <div class="flex flex-wrap items-center gap-4 text-gray-600 dark:text-gray-400 mb-4">
-        <time datetime={pubDate.toISOString()} class="text-sm">
-          {formattedDate}
-        </time>
-        {author && (
-          <>
-            <span class="text-gray-400">•</span>
-            <span class="text-sm">By {author}</span>
-          </>
-        )}
+  <!-- Hero Banner -->
+  <div class="blog-hero">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <div class="blog-hero-inner">
+        <!-- Tags row -->
+        <div class="flex flex-wrap gap-2 mb-5">
+          {tags.map((tag) => (
+            <span class="tag-pill">{tag}</span>
+          ))}
+        </div>
+
+        <!-- Title -->
+        <h1 class="blog-title">{title}</h1>
+
+        <!-- Meta row -->
+        <div class="blog-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+
+          {author && (
+            <>
+              <span class="meta-dot">·</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+              </svg>
+              <span>{author}</span>
+            </>
+          )}
+
+          <span class="meta-dot">·</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span>{readingMins} min read</span>
+        </div>
       </div>
-      
-      <div class="flex flex-wrap gap-2 mb-6">
-        {tags.map((tag) => (
-          <span class="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
-            {tag}
-          </span>
-        ))}
-      </div>
-    </header>
-    
-    <div class="prose prose-lg dark:prose-invert max-w-none
-                prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white
-                prose-p:text-gray-700 dark:prose-p:text-gray-300
-                prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
-                prose-code:text-pink-600 dark:prose-code:text-pink-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-                prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:text-gray-100
-                prose-strong:text-gray-900 dark:prose-strong:text-white
-                prose-ul:text-gray-700 dark:prose-ul:text-gray-300
-                prose-ol:text-gray-700 dark:prose-ol:text-gray-300
-                prose-li:text-gray-700 dark:prose-li:text-gray-300">
-      <Content />
     </div>
-    
-    <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-      <a 
-        href="/blog" 
-        class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline"
-      >
-        ← Back to all posts
-      </a>
-    </footer>
-  </article>
+  </div>
+
+  <!-- Content area with optional sidebar -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl py-10">
+    <div class={toc.length > 0 ? 'blog-layout' : ''}>
+
+      <!-- Main prose -->
+      <article id="blog-content" class="blog-prose-wrapper">
+        <div class="prose prose-lg dark:prose-invert max-w-none
+                    prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white
+                    prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed
+                    prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+                    prose-code:text-pink-600 dark:prose-code:text-pink-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+                    prose-pre:relative prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:text-gray-100 prose-pre:rounded-xl prose-pre:shadow-lg
+                    prose-strong:text-gray-900 dark:prose-strong:text-white
+                    prose-ul:text-gray-700 dark:prose-ul:text-gray-300
+                    prose-ol:text-gray-700 dark:prose-ol:text-gray-300
+                    prose-li:text-gray-700 dark:prose-li:text-gray-300
+                    prose-blockquote:border-blue-400 prose-blockquote:text-gray-600 dark:prose-blockquote:text-gray-400">
+          <Content />
+        </div>
+
+        <!-- Footer -->
+        <footer class="blog-footer">
+          <div class="blog-footer-inner">
+            <a href="/blog" class="back-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+              </svg>
+              Back to Blog
+            </a>
+
+            <button id="share-btn" class="share-btn" title="Copy link to clipboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+              <span id="share-label">Copy link</span>
+            </button>
+          </div>
+        </footer>
+      </article>
+
+      <!-- Sticky ToC Sidebar -->
+      {toc.length > 0 && (
+        <aside class="toc-sidebar" aria-label="Table of contents">
+          <div class="toc-inner">
+            <p class="toc-heading">On this page</p>
+            <nav>
+              <ul class="toc-list">
+                {toc.map((h) => (
+                  <li class={h.depth === 3 ? 'toc-item toc-item--sub' : 'toc-item'}>
+                    <a href={`#${h.slug}`} class="toc-link" data-heading={h.slug}>
+                      {h.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </aside>
+      )}
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  /* ── Hero ── */
+  .blog-hero {
+    background: linear-gradient(135deg,
+      rgb(239 246 255) 0%,
+      rgb(219 234 254) 40%,
+      rgb(224 231 255) 100%);
+    padding: 3.5rem 0 3rem;
+    border-bottom: 1px solid rgb(219 234 254);
+    animation: fadeUp 0.5s ease both;
+  }
+  :global(.dark) .blog-hero {
+    background: linear-gradient(135deg,
+      rgb(15 23 42) 0%,
+      rgb(23 37 84) 40%,
+      rgb(17 24 39) 100%);
+    border-bottom-color: rgb(30 58 138 / 0.4);
+  }
+  .blog-hero-inner {
+    max-width: 780px;
+  }
+  .blog-title {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: rgb(17 24 39);
+    margin-bottom: 1.25rem;
+  }
+  :global(.dark) .blog-title { color: white; }
+
+  .blog-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: rgb(75 85 99);
+  }
+  :global(.dark) .blog-meta { color: rgb(156 163 175); }
+  .meta-icon { width: 1rem; height: 1rem; flex-shrink: 0; }
+  .meta-dot { color: rgb(156 163 175); }
+
+  /* Tags */
+  .tag-pill {
+    display: inline-block;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background: rgb(219 234 254);
+    color: rgb(29 78 216);
+    border-radius: 9999px;
+    border: 1px solid rgb(191 219 254);
+  }
+  :global(.dark) .tag-pill {
+    background: rgb(30 58 138 / 0.5);
+    color: rgb(147 197 253);
+    border-color: rgb(30 58 138);
+  }
+
+  /* ── Layout ── */
+  .blog-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (min-width: 1280px) {
+    .blog-layout {
+      grid-template-columns: minmax(0, 1fr) 240px;
+    }
+  }
+
+  .blog-prose-wrapper {
+    min-width: 0; /* prevent prose overflow */
+  }
+
+  /* ── ToC Sidebar ── */
+  .toc-sidebar {
+    display: none;
+  }
+  @media (min-width: 1280px) {
+    .toc-sidebar {
+      display: block;
+    }
+    .toc-inner {
+      position: sticky;
+      top: 5.5rem;
+      padding: 1.25rem 1rem;
+      background: white;
+      border: 1px solid rgb(229 231 235);
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
+    }
+    :global(.dark) .toc-inner {
+      background: rgb(17 24 39);
+      border-color: rgb(55 65 81);
+    }
+  }
+  .toc-heading {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgb(107 114 128);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgb(229 231 235);
+  }
+  :global(.dark) .toc-heading {
+    color: rgb(156 163 175);
+    border-bottom-color: rgb(55 65 81);
+  }
+  .toc-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.1rem; }
+  .toc-item {}
+  .toc-item--sub .toc-link { padding-left: 1rem; font-size: 0.8125rem; }
+  .toc-link {
+    display: block;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.875rem;
+    color: rgb(107 114 128);
+    border-radius: 0.375rem;
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: color 0.15s, background 0.15s, border-color 0.15s;
+    line-height: 1.4;
+  }
+  .toc-link:hover {
+    color: rgb(37 99 235);
+    background: rgb(239 246 255);
+  }
+  :global(.dark) .toc-link:hover {
+    color: rgb(96 165 250);
+    background: rgb(23 37 84 / 0.4);
+  }
+  .toc-link.active {
+    color: rgb(37 99 235);
+    border-left-color: rgb(37 99 235);
+    background: rgb(239 246 255);
+    font-weight: 600;
+  }
+  :global(.dark) .toc-link.active {
+    color: rgb(96 165 250);
+    border-left-color: rgb(96 165 250);
+    background: rgb(23 37 84 / 0.4);
+  }
+
+  /* ── Footer ── */
+  .blog-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgb(229 231 235);
+  }
+  :global(.dark) .blog-footer { border-top-color: rgb(55 65 81); }
+  .blog-footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgb(37 99 235);
+    background: rgb(239 246 255);
+    border: 1px solid rgb(191 219 254);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .back-btn:hover {
+    background: rgb(219 234 254);
+    border-color: rgb(147 197 253);
+  }
+  :global(.dark) .back-btn {
+    color: rgb(96 165 250);
+    background: rgb(23 37 84 / 0.4);
+    border-color: rgb(30 58 138);
+  }
+  :global(.dark) .back-btn:hover {
+    background: rgb(30 58 138 / 0.5);
+  }
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgb(55 65 81);
+    background: white;
+    border: 1px solid rgb(209 213 219);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .share-btn:hover {
+    background: rgb(249 250 251);
+    border-color: rgb(156 163 175);
+  }
+  :global(.dark) .share-btn {
+    color: rgb(209 213 219);
+    background: rgb(31 41 55);
+    border-color: rgb(55 65 81);
+  }
+  :global(.dark) .share-btn:hover {
+    background: rgb(55 65 81);
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  // ── Table of Contents active-section tracking ──
+  const tocLinks = document.querySelectorAll<HTMLAnchorElement>('.toc-link');
+  if (tocLinks.length > 0) {
+    const headingEls = Array.from(tocLinks).map(l => {
+      const id = l.getAttribute('data-heading') ?? '';
+      return document.getElementById(id);
+    }).filter(Boolean) as HTMLElement[];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            tocLinks.forEach(l => l.classList.remove('active'));
+            const active = document.querySelector(`.toc-link[data-heading="${entry.target.id}"]`);
+            active?.classList.add('active');
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -70% 0px' }
+    );
+    headingEls.forEach(el => observer.observe(el));
+  }
+
+  // ── Code block: language badge + copy button ──
+  document.querySelectorAll('pre').forEach(pre => {
+    // Language badge from the <code> class
+    const code = pre.querySelector('code');
+    const lang = pre.getAttribute('data-language') ?? (code?.className ?? '').match(/language-(\w+)/)?.[1];
+
+    const wrapper = document.createElement('div');
+    wrapper.style.cssText = 'position:relative';
+    pre.parentNode?.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+
+    if (lang) {
+      const badge = document.createElement('span');
+      badge.textContent = lang;
+      badge.style.cssText = `
+        position:absolute; top:0.6rem; left:0.9rem;
+        font-size:0.65rem; font-weight:700; letter-spacing:0.08em;
+        text-transform:uppercase; color:rgb(148 163 184);
+        pointer-events:none; user-select:none;
+      `;
+      wrapper.appendChild(badge);
+    }
+
+    const copyBtn = document.createElement('button');
+    copyBtn.textContent = 'Copy';
+    copyBtn.style.cssText = `
+      position:absolute; top:0.55rem; right:0.7rem;
+      padding:0.2rem 0.6rem; font-size:0.7rem; font-weight:600;
+      background:rgb(51 65 85); color:rgb(203 213 225);
+      border:1px solid rgb(71 85 105); border-radius:0.375rem;
+      cursor:pointer; transition:background 0.15s;
+    `;
+    copyBtn.onmouseenter = () => copyBtn.style.background = 'rgb(71 85 105)';
+    copyBtn.onmouseleave = () => copyBtn.style.background = 'rgb(51 65 85)';
+    copyBtn.onclick = async () => {
+      await navigator.clipboard.writeText(code?.innerText ?? '');
+      copyBtn.textContent = 'Copied!';
+      copyBtn.style.color = 'rgb(134 239 172)';
+      setTimeout(() => {
+        copyBtn.textContent = 'Copy';
+        copyBtn.style.color = 'rgb(203 213 225)';
+      }, 1800);
+    };
+    wrapper.appendChild(copyBtn);
+  });
+
+  // ── Share / copy-link button ──
+  document.getElementById('share-btn')?.addEventListener('click', async () => {
+    await navigator.clipboard.writeText(window.location.href);
+    const label = document.getElementById('share-label');
+    if (label) {
+      label.textContent = 'Copied!';
+      setTimeout(() => { label.textContent = 'Copy link'; }, 1800);
+    }
+  });
+</script>
