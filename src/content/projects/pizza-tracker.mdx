@@ -1,0 +1,75 @@
+---
+title: "Pizza Tracker"
+description: "A real-time pizza ordering and tracking application built with Go, Gin, SQLite, and Server-Sent Events for instant order updates."
+technologies: ["Go", "Gin", "GORM", "SQLite", "Server-Sent Events", "Tailwind CSS"]
+repositoryUrl: "https://github.com/junaid-h0ssain/pizza-tracker"
+thumbnail: "/projects/pizza-tracker-thumb.svg"
+featured: true
+startDate: 2026-02-15
+endDate: 2026-03-10
+---
+
+# Pizza Tracker
+
+Pizza Tracker is a full-stack Go application for placing pizza orders and following them through a live status timeline. The goal was to build something that feels closer to a real product than a basic CRUD exercise: customers submit an order, admins manage fulfillment, and status changes appear instantly on the tracking page.
+
+## Overview
+
+The application is split into two clear flows.
+
+Customers can place an order with their name, phone number, address, pizza selections, and special instructions. After checkout, they are redirected to a dedicated tracking page where they can follow the order through each stage.
+
+Admins can log in to a protected dashboard, review all incoming orders, change statuses, delete completed entries, and monitor new activity in real time.
+
+## Core Features
+
+- **Live order tracking** with a step-by-step progress bar
+- **Admin dashboard** for updating and managing incoming orders
+- **Secure login flow** for admin-only access
+- **Instant status sync** from the dashboard to the customer page
+- **Persistent order storage** using SQLite
+
+## Technical Approach
+
+I built the project with a server-rendered Go stack to keep the architecture small and understandable while still supporting real-time behavior.
+
+- **Go + Gin** handle routing, middleware, request validation, and HTML rendering
+- **GORM** maps application models to the SQLite database
+- **SQLite** keeps setup simple and makes the app easy to run locally
+- **Sessions + bcrypt** provide authentication for the admin area
+- **Server-Sent Events** push status changes to the browser without polling
+
+This approach avoided unnecessary frontend complexity while still delivering a responsive product experience.
+
+## Real-Time Updates with SSE
+
+The defining feature of Pizza Tracker is the live status flow. When an admin changes an order from the dashboard, the customer page updates immediately through an SSE stream.
+
+```go
+func streamOrderUpdates(c *gin.Context) {
+    c.Writer.Header().Set("Content-Type", "text/event-stream")
+    c.Writer.Header().Set("Cache-Control", "no-cache")
+    c.Writer.Header().Set("Connection", "keep-alive")
+
+    // push order state changes to the connected client
+}
+```
+
+SSE was a good fit here because the application only needs one-way updates from server to browser. That kept the implementation smaller than a full WebSocket setup while still making the tracker feel immediate.
+
+## Challenges and Decisions
+
+One of the main tradeoffs was choosing the right amount of infrastructure. It would have been easy to overbuild the real-time side of the app, but the project requirements were narrow enough that SSE, server-rendered templates, and SQLite were the better choice.
+
+Another challenge was keeping the admin experience practical. The dashboard had to support fast status changes and clear order visibility without turning into a complicated internal tool. That pushed the design toward straightforward workflows instead of feature sprawl.
+
+## What I Learned
+
+- Real-time UX can be achieved without a heavy frontend stack
+- Server-rendered applications still work well for interactive products
+- Small infrastructure choices matter when the goal is fast iteration
+- Modeling explicit order states makes both the UI and backend logic easier to maintain
+
+## Outcome
+
+Pizza Tracker gave me hands-on experience with authentication, persistence, event streaming, and product-focused backend design in Go. It is the kind of project that helped connect individual concepts into a single working application instead of treating them as isolated exercises.
