@@ -10,7 +10,7 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  site: 'https://example.github.io',
+  site: 'https://junaid-h0ssain.github.io',
   base: '/',
   integrations: [react(), mdx()],
 
