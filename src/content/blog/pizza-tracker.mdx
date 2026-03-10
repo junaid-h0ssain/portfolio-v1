@@ -1,0 +1,81 @@
+---
+title: "Building Pizza Tracker with Go and Server-Sent Events"
+description: "A behind-the-scenes look at Pizza Tracker, a real-time ordering app built with Go, Gin, SQLite, and SSE for live status updates."
+pubDate: 2026-03-10
+tags: ["go", "gin", "sqlite", "sse", "real-time"]
+author: "Junaid Hossain"
+---
+
+# Building Pizza Tracker with Go and Server-Sent Events
+
+[Pizza Tracker](https://github.com/junaid-h0ssain/pizza-tracker) is a real-time pizza ordering application I built to learn more about backend architecture in Go while still shipping something practical and visual. The idea was straightforward: let a customer place an order, give them a dedicated tracking page, and keep that page updated automatically as the order moves through the kitchen.
+
+## What the Project Does
+
+The customer flow starts with a simple order form that collects contact details, address information, pizza selections, and any special instructions. After submitting the form, the customer is redirected to a personal tracking page where they can follow each stage of the order:
+
+- Order Placed
+- Preparing
+- Baking
+- Quality Check
+- Ready
+
+On the other side, the admin dashboard allows staff to log in, review incoming orders, update statuses, and remove old entries when necessary. The important part is that the customer's tracking page reacts immediately when an admin changes an order.
+
+## Why I Built It This Way
+
+I wanted this project to be more than a CRUD app. A pizza order has a natural lifecycle, which made it a good fit for experimenting with real-time communication and state transitions. Instead of forcing users to refresh the page, I used Server-Sent Events so the browser can stay connected and listen for updates from the server.
+
+That decision kept the architecture small and focused. I did not need a full WebSocket setup just to push one-way status changes, and SSE matched the product requirements well.
+
+## Tech Stack
+
+Pizza Tracker is built with a stack that stays simple without feeling limited:
+
+- **Go** for the core application logic
+- **Gin** for routing, middleware, and HTML rendering
+- **GORM** for working with the database through Go structs
+- **SQLite** for lightweight persistence without managing a separate database server
+- **Sessions** for protected admin authentication
+- **bcrypt** for password hashing
+- **Tailwind CSS via CDN** for quick, utility-first styling
+
+This combination made it possible to build a full application with authentication, persistence, validation, and live updates while keeping deployment and local setup relatively small.
+
+## Real-Time Status Updates
+
+The most interesting part of the project is the live tracking experience. When an order status changes in the admin panel, the server pushes that new state to the customer page instantly. On the client side, the browser only needs to subscribe to the order stream and react when a new message arrives.
+
+```javascript
+const source = new EventSource(`/orders/${orderId}/events`);
+
+source.onmessage = (event) => {
+  const update = JSON.parse(event.data);
+  renderStatus(update.status);
+};
+```
+
+That small interaction changes how the product feels. Even with a simple UI, the app feels more responsive and more trustworthy because customers can see progress happen in real time.
+
+## Challenges I Ran Into
+
+One challenge was balancing a straightforward codebase with enough structure to support different roles and flows. Customer pages needed to stay minimal, while the admin side needed authentication, sorting, status updates, deletion, and visibility into new orders.
+
+Another challenge was choosing the right amount of infrastructure. It is easy to overbuild a real-time app, especially when WebSockets, queues, and frontend frameworks are available. In this project, keeping the stack server-rendered and using SSE helped me focus on the actual user flow instead of chasing unnecessary complexity.
+
+## What I Learned
+
+This project reinforced a few ideas for me:
+
+- Real-time features do not always require the heaviest tooling
+- Server-rendered apps can still feel dynamic and modern
+- SQLite is a strong choice for small projects when you want fast iteration
+- Clear status transitions make a product easier to understand and easier to debug
+
+Pizza Tracker was a good exercise in building something practical with Go, from routing and validation to authentication and live event delivery. It also gave me a project that feels closer to a real product than a tutorial-sized demo.
+
+## Repository
+
+If you want to see the implementation, the source is available here:
+
+- [github.com/junaid-h0ssain/pizza-tracker](https://github.com/junaid-h0ssain/pizza-tracker)
