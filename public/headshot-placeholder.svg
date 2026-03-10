@@ -1,0 +1,33 @@
+<svg width="960" height="1200" viewBox="0 0 960 1200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Headshot placeholder</title>
+  <desc id="desc">An abstract portrait placeholder with a gradient backdrop and a centered silhouette.</desc>
+  <rect width="960" height="1200" rx="64" fill="url(#bg)"/>
+  <g opacity="0.7">
+    <circle cx="740" cy="210" r="190" fill="url(#glowA)"/>
+    <circle cx="240" cy="980" r="220" fill="url(#glowB)"/>
+  </g>
+  <g opacity="0.35" stroke="#BAE6FD">
+    <circle cx="480" cy="600" r="360"/>
+    <circle cx="480" cy="600" r="300"/>
+  </g>
+  <rect x="156" y="120" width="648" height="960" rx="44" fill="rgba(15,23,42,0.22)" stroke="rgba(255,255,255,0.28)" stroke-width="4"/>
+  <circle cx="480" cy="430" r="140" fill="#F8FAFC" fill-opacity="0.9"/>
+  <path d="M300 900C300 772.422 403.422 669 531 669H429C556.578 669 660 772.422 660 900V927H300V900Z" fill="#F8FAFC" fill-opacity="0.9"/>
+  <path d="M364 395C364 327.621 418.621 273 486 273C553.379 273 608 327.621 608 395V422C608 489.379 553.379 544 486 544C418.621 544 364 489.379 364 422V395Z" fill="#0F172A" fill-opacity="0.08"/>
+  <text x="480" y="1040" text-anchor="middle" fill="#E0F2FE" font-family="ui-sans-serif, system-ui, sans-serif" font-size="44" letter-spacing="10">ADD YOUR PHOTO</text>
+  <defs>
+    <linearGradient id="bg" x1="122" y1="66" x2="864" y2="1105" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020617"/>
+      <stop offset="0.5" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#082F49"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(740 210) rotate(90) scale(190)">
+      <stop stop-color="#38BDF8" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(240 980) rotate(90) scale(220)">
+      <stop stop-color="#7DD3FC" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#7DD3FC" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
