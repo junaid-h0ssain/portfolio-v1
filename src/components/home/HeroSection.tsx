@@ -217,11 +217,11 @@ export default function HeroSection({
         <motion.figure
           initial={{ opacity: 0, scale: 0.92, y: 24 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.45, ease: 'easeOut' }}
+          transition={{ duration: 0.9, delay: 0.45, ease:'easeOut' }}
           className="relative mx-auto w-full max-w-sm"
         >
           <div className="absolute inset-0 rounded-4xl bg-linear-to-br from-primary-500/30 via-sky-400/10 to-secondary-500/20 blur-2xl" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-2xl shadow-sky-950/30 backdrop-blur-sm">
+          <div className="relative overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-3 shadow-2xl shadow-sky-950/30 backdrop-blur-sm">
             <div className="relative aspect-4/5 overflow-hidden rounded-3xl bg-slate-900">
               <img
                 src={resolvedHeadshotSrc}
