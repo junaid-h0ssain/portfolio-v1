@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { withBase } from '../../lib/utils';
 
 interface NavigationLink {
   href: string;
@@ -13,6 +14,7 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ links, currentPath }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const homeHref = withBase('/');
 
   const isActive = (href: string) => {
     if (href === '/') {
@@ -98,7 +100,7 @@ export default function MobileMenu({ links, currentPath }: MobileMenuProps) {
               <div className="flex min-h-dvh flex-col px-5 pb-8 pt-5 sm:px-6">
                 <div className="flex items-center justify-between border-b border-white/10 pb-4">
                   <a
-                    href="/"
+                    href={homeHref}
                     className="text-lg font-semibold tracking-tight text-white/90"
                     onClick={() => setIsOpen(false)}
                   >
@@ -131,7 +133,7 @@ export default function MobileMenu({ links, currentPath }: MobileMenuProps) {
                     {links.map((link) => (
                       <li key={link.href}>
                         <a
-                          href={link.href}
+                          href={withBase(link.href)}
                           className={`block rounded-2xl border px-4 py-4 text-2xl font-semibold tracking-tight transition-colors ${
                             isActive(link.href)
                               ? 'border-sky-400/40 bg-sky-400/12 text-sky-100 shadow-[0_0_0_1px_rgba(125,211,252,0.1)]'

@@ -11,7 +11,7 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   output: 'static',
   site: 'https://junaid-h0ssain.github.io',
-  base: '/',
+  base: '/portfolio-v1',
   integrations: [react(), mdx()],
 
   vite: {

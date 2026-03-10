@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
+import { withBase } from '../../lib/utils';
 
 interface HeroSectionProps {
   name: string;
@@ -17,6 +18,9 @@ export default function HeroSection({
   headshotAlt,
 }: HeroSectionProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const projectsHref = withBase('/projects');
+  const resumeHref = withBase('/resume');
+  const resolvedHeadshotSrc = withBase(headshotSrc);
 
   // Generate particles once and memoize to prevent re-creation on every render
   const particles = useMemo(() => {
@@ -189,7 +193,7 @@ export default function HeroSection({
             className="mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start"
           >
             <motion.a
-              href="/projects"
+              href={projectsHref}
               className="px-8 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-900"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -198,7 +202,7 @@ export default function HeroSection({
               View Projects
             </motion.a>
             <motion.a
-              href="/resume"
+              href={resumeHref}
               className="px-8 py-3 bg-transparent border-2 border-primary-500 text-primary-400 rounded-lg font-medium hover:bg-primary-500/10 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-900"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -220,7 +224,7 @@ export default function HeroSection({
           <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-2xl shadow-sky-950/30 backdrop-blur-sm">
             <div className="relative aspect-4/5 overflow-hidden rounded-3xl bg-slate-900">
               <img
-                src={headshotSrc}
+                src={resolvedHeadshotSrc}
                 alt={resolvedHeadshotAlt}
                 className="h-full w-full object-cover"
                 loading="eager"

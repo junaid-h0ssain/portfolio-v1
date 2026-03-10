@@ -1,5 +1,6 @@
 ---
 import MobileMenu from './MobileMenu';
+import { withBase } from '../../lib/utils';
 
 interface Props {
   currentPath: string;
@@ -20,6 +21,8 @@ const isActive = (href: string) => {
   }
   return currentPath.startsWith(href);
 };
+
+const homeHref = withBase('/');
 ---
 
 <header class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
@@ -27,7 +30,7 @@ const isActive = (href: string) => {
     <div class="flex h-16 items-center justify-between">
       <!-- Logo/Brand -->
       <div class="shrink-0">
-        <a href="/" class="text-xl font-bold text-gray-900 dark:text-white">
+        <a href={homeHref} class="text-xl font-bold text-gray-900 dark:text-white">
           Junaid Hossain
         </a>
       </div>
@@ -37,7 +40,7 @@ const isActive = (href: string) => {
         <div class="flex items-center space-x-8">
           {navLinks.map((link) => (
             <a
-              href={link.href}
+              href={withBase(link.href)}
               class={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
                 isActive(link.href)
                   ? 'text-primary-600 dark:text-primary-400'
