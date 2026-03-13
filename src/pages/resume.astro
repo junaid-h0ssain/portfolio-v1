@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
-import Resume from '../components/resume/Resume.astro';
+import ResumeSection from '../components/resume/Resume.astro';
 import resumeData from '../data/resume.json';
 import type { ResumeData } from '../types/resume';
 
@@ -8,15 +8,16 @@ const data: ResumeData = resumeData;
 ---
 
 <BaseLayout
-  title="Resume - Alex Johnson"
-  description="Professional resume of Alex Johnson, Full Stack Developer"
+  title="Resume - Junaid Hossain"
+  description="Professional resume of Junaid Hossain, Full Stack Developer"
   image="/og-resume.png"
+  theme="light"
 >
   <head>
     <meta name="robots" content="index, follow" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Resume - Alex Johnson" />
-    <meta property="og:description" content="Professional resume of Alex Johnson, Full Stack Developer" />
+    <meta property="og:title" content="Resume - Junaid Hossain" />
+    <meta property="og:description" content="Professional resume of Junaid Hossain, Full Stack Developer" />
     <meta name="print-color-adjust" content="exact" />
     <meta name="webkit-print-color-adjust" content="exact" />
     <style>
@@ -35,9 +36,9 @@ const data: ResumeData = resumeData;
     </style>
   </head>
   
-  <main class="min-h-screen bg-gray-50 py-8 print:bg-white print:py-0">
+  <main class="min-h-screen bg-white py-8 print:bg-white print:py-0">
     <div class="print:max-w-full">
-      <Resume data={data} />
+      <ResumeSection data={data} />
     </div>
   </main>
 </BaseLayout>
