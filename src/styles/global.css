@@ -7,13 +7,13 @@ html {
 }
 
 body {
-  background-color: rgb(249 250 251);
-  color: rgb(17 24 39);
+  background-color: rgb(220, 222, 225);
+  color: rgb(32, 44, 69);
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: rgb(17 24 39);
+    background-color: rgb(27, 38, 61);
     color: rgb(243 244 246);
   }
 }
