@@ -11,7 +11,7 @@ const { project } = Astro.props;
 const { title, description, technologies, repositoryUrl, liveUrl, thumbnail } = project.data;
 ---
 
-<article class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+<article class="bg-secondary-800/50 border border-secondary-500/40 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
   <a href={withBase(`/projects/${project.slug}`)} class="block">
     <div class="relative aspect-video overflow-hidden">
       <Image 
@@ -24,15 +24,15 @@ const { title, description, technologies, repositoryUrl, liveUrl, thumbnail } = 
       />
     </div>
     <div class="p-6">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+      <h2 class="text-2xl font-bold text-primary-50 mb-2 hover:text-primary-300 transition-colors">
         {title}
       </h2>
-      <p class="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
+      <p class="text-primary-100/85 mb-4 line-clamp-3">
         {description}
       </p>
       <div class="flex flex-wrap gap-2 mb-4">
         {technologies.map((tech) => (
-          <span class="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+          <span class="px-3 py-1 text-sm bg-primary-500/20 text-primary-200 border border-primary-400/35 rounded-full">
             {tech}
           </span>
         ))}
@@ -42,7 +42,7 @@ const { title, description, technologies, repositoryUrl, liveUrl, thumbnail } = 
           href={repositoryUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 hover:underline"
+          class="inline-flex items-center gap-1 text-sm text-primary-300 hover:underline"
           onclick="event.stopPropagation()"
         >
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -55,7 +55,7 @@ const { title, description, technologies, repositoryUrl, liveUrl, thumbnail } = 
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 hover:underline"
+            class="inline-flex items-center gap-1 text-sm text-primary-300 hover:underline"
             onclick="event.stopPropagation()"
           >
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

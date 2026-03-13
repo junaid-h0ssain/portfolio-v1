@@ -45,14 +45,14 @@ export default function HeroSection({
   const resolvedHeadshotAlt = headshotAlt ?? `${name || 'Portfolio'} headshot`;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-b from-gray-900 via-gray-800 to-gray-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-b from-secondary-900 via-secondary-800 to-secondary-950">
       {/* Animated Background Beams */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Spotlight Effect */}
         <motion.div
           className="absolute w-96 h-96 rounded-full opacity-30 blur-3xl"
           style={{
-            background: 'radial-gradient(circle, rgba(14, 165, 233, 0.4) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(158, 178, 112, 0.38) 0%, transparent 70%)',
             left: mousePosition.x - 192,
             top: mousePosition.y - 192,
           }}
@@ -147,7 +147,7 @@ export default function HeroSection({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <h1 className="text-5xl font-bold text-white sm:text-6xl md:text-7xl">
+            <h1 className="text-5xl font-bold text-primary-50 sm:text-6xl md:text-7xl">
               {name.split('').map((char, index) => (
                 <motion.span
                   key={index}
@@ -181,7 +181,7 @@ export default function HeroSection({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
           >
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl lg:mx-0">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-primary-100/85 sm:text-xl lg:mx-0">
               {description}
             </p>
           </motion.div>
@@ -194,7 +194,7 @@ export default function HeroSection({
           >
             <motion.a
               href={projectsHref}
-              className="px-8 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+              className="px-8 py-3 bg-primary-600 text-secondary-950 rounded-lg font-medium hover:bg-primary-500 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-secondary-900"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label="View my projects"
@@ -203,7 +203,7 @@ export default function HeroSection({
             </motion.a>
             <motion.a
               href={resumeHref}
-              className="px-8 py-3 bg-transparent border-2 border-primary-500 text-primary-400 rounded-lg font-medium hover:bg-primary-500/10 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+              className="px-8 py-3 bg-transparent border-2 border-primary-500 text-primary-300 rounded-lg font-medium hover:bg-primary-500/12 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-secondary-900"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label="View my resume"
@@ -220,22 +220,22 @@ export default function HeroSection({
           transition={{ duration: 0.9, delay: 0.45, ease:'easeOut' }}
           className="relative mx-auto w-full max-w-sm"
         >
-          <div className="absolute inset-0 rounded-4xl bg-linear-to-br from-primary-500/30 via-sky-400/10 to-secondary-500/20 blur-2xl" />
-          <div className="relative overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-3 shadow-2xl shadow-sky-950/30 backdrop-blur-sm">
-            <div className="relative aspect-4/5 overflow-hidden rounded-3xl bg-slate-900">
+          <div className="absolute inset-0 rounded-4xl bg-linear-to-br from-primary-500/28 via-primary-400/10 to-secondary-500/26 blur-2xl" />
+          <div className="relative overflow-hidden rounded-4xl border border-primary-200/15 bg-secondary-900/35 p-3 shadow-2xl shadow-secondary-950/55 backdrop-blur-sm">
+            <div className="relative aspect-4/5 overflow-hidden rounded-3xl bg-secondary-950">
               <img
                 src={resolvedHeadshotSrc}
                 alt={resolvedHeadshotAlt}
                 className="h-full w-full object-cover"
                 loading="eager"
               />
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-slate-950 via-slate-950/50 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-secondary-950 via-secondary-950/50 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.35em] text-sky-200/70">Focused on</p>
-                  <p className="mt-2 text-lg font-semibold text-white">Systems, APIs, and shipping reliably</p>
+                  <p className="text-xs uppercase tracking-[0.35em] text-primary-100/70">Focused on</p>
+                  <p className="mt-2 text-lg font-semibold text-primary-50">Systems, APIs, and shipping reliably</p>
                 </div>
-                <div className="shrink-0 rounded-full border border-primary-400/40 bg-primary-500/15 px-3 py-1 text-xs font-medium text-primary-100">
+                <div className="shrink-0 rounded-full border border-primary-300/45 bg-primary-500/20 px-3 py-1 text-xs font-medium text-primary-100">
                   Open to work
                 </div>
               </div>
@@ -256,7 +256,7 @@ export default function HeroSection({
           className="inline-block"
         >
           <svg
-            className="w-6 h-6 text-gray-400"
+            className="w-6 h-6 text-primary-200/65"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="2"

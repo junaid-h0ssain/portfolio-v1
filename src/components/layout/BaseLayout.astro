@@ -8,12 +8,14 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  theme?: 'default' | 'light';
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image, theme = 'default' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImage = image ? new URL(image, Astro.site).href : `${Astro.site}og-default.png`;
 const currentPath = stripBase(Astro.url.pathname);
+const isLightTheme = theme === 'light';
 ---
 
 <!doctype html>
@@ -45,8 +47,8 @@ const currentPath = stripBase(Astro.url.pathname);
     
     <ViewTransitions />
   </head>
-  <body>
-    <Navigation currentPath={currentPath} />
+  <body class={isLightTheme ? 'bg-white text-gray-900' : undefined}>
+    <Navigation currentPath={currentPath} isLight={isLightTheme} />
     <main>
       <slot />
     </main>

@@ -4,9 +4,10 @@ import { withBase } from '../../lib/utils';
 
 interface Props {
   currentPath: string;
+  isLight?: boolean;
 }
 
-const { currentPath } = Astro.props;
+const { currentPath, isLight = false } = Astro.props;
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -25,12 +26,16 @@ const isActive = (href: string) => {
 const homeHref = withBase('/');
 ---
 
-<header class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+<header class={`sticky top-0 z-50 w-full border-b backdrop-blur-sm ${
+  isLight
+    ? 'border-gray-300/80 bg-white/92'
+    : 'border-secondary-600/70 bg-secondary-950/85'
+}`}>
   <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       <!-- Logo/Brand -->
       <div class="shrink-0">
-        <a href={homeHref} class="text-xl font-bold text-gray-900 dark:text-white">
+        <a href={homeHref} class={`text-xl font-bold ${isLight ? 'text-gray-900' : 'text-primary-200'}`}>
           Junaid Hossain
         </a>
       </div>
@@ -41,10 +46,12 @@ const homeHref = withBase('/');
           {navLinks.map((link) => (
             <a
               href={withBase(link.href)}
-              class={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
+              class={`text-sm font-medium transition-colors ${
+                isLight ? 'hover:text-gray-900' : 'hover:text-primary-300'
+              } ${
                 isActive(link.href)
-                  ? 'text-primary-600 dark:text-primary-400'
-                  : 'text-gray-700 dark:text-gray-300'
+                  ? isLight ? 'text-gray-900' : 'text-primary-300'
+                  : isLight ? 'text-gray-600' : 'text-primary-100/80'
               }`}
               aria-current={isActive(link.href) ? 'page' : undefined}
             >
@@ -56,7 +63,7 @@ const homeHref = withBase('/');
       
       <!-- Mobile Menu Toggle -->
       <div class="md:hidden">
-        <MobileMenu links={navLinks} currentPath={currentPath} client:visible />
+        <MobileMenu links={navLinks} currentPath={currentPath} isLight={isLight} client:visible />
       </div>
     </div>
   </nav>

@@ -10,9 +10,10 @@ interface NavigationLink {
 interface MobileMenuProps {
   links: NavigationLink[];
   currentPath: string;
+  isLight?: boolean;
 }
 
-export default function MobileMenu({ links, currentPath }: MobileMenuProps) {
+export default function MobileMenu({ links, currentPath, isLight = false }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const homeHref = withBase('/');
 
@@ -51,7 +52,11 @@ export default function MobileMenu({ links, currentPath }: MobileMenuProps) {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-primary-400"
+        className={`inline-flex items-center justify-center rounded-md p-2 transition-colors focus:outline-none focus:ring-2 focus:ring-inset ${
+          isLight
+            ? 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:ring-gray-400'
+            : 'text-primary-100 hover:bg-secondary-700/60 hover:text-primary-200 focus:ring-primary-500'
+        }`}
         aria-label="Toggle mobile menu"
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
@@ -80,7 +85,7 @@ export default function MobileMenu({ links, currentPath }: MobileMenuProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-slate-950/72 backdrop-blur-sm"
+              className="fixed inset-0 z-40 bg-secondary-950/78 backdrop-blur-sm"
               onClick={() => setIsOpen(false)}
               data-testid="mobile-menu-overlay"
               aria-hidden="true"
@@ -92,23 +97,23 @@ export default function MobileMenu({ links, currentPath }: MobileMenuProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.22, ease: 'easeOut' }}
-              className="fixed inset-0 z-50 flex min-h-dvh flex-col overflow-y-auto bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.16),transparent_38%),linear-gradient(180deg,rgba(15,23,42,0.98),rgba(2,6,23,0.98))] text-white"
+              className="fixed inset-0 z-50 flex min-h-dvh flex-col overflow-y-auto bg-[radial-gradient(circle_at_top,rgba(158,178,112,0.16),transparent_40%),linear-gradient(180deg,rgba(55,37,53,0.98),rgba(15,14,17,0.98))] text-primary-50"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation menu"
             >
               <div className="flex min-h-dvh flex-col px-5 pb-8 pt-5 sm:px-6">
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <div className="flex items-center justify-between border-b border-secondary-500/35 pb-4">
                   <a
                     href={homeHref}
-                    className="text-lg font-semibold tracking-tight text-white/90"
+                    className="text-lg font-semibold tracking-tight text-primary-100"
                     onClick={() => setIsOpen(false)}
                   >
                     Junaid Hossain
                   </a>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="rounded-full border border-white/10 p-2 text-white/80 transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-primary-400"
+                    className="rounded-full border border-secondary-400/35 p-2 text-primary-100/85 transition-colors hover:border-primary-300/60 hover:bg-secondary-500/25 hover:text-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-400"
                     aria-label="Close mobile menu"
                   >
                     <svg
@@ -125,7 +130,7 @@ export default function MobileMenu({ links, currentPath }: MobileMenuProps) {
                 </div>
 
                 <div className="flex flex-1 flex-col justify-center py-10">
-                  <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-sky-200/60">
+                  <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-primary-200/70">
                     Navigate
                   </p>
                   <nav>
@@ -136,8 +141,8 @@ export default function MobileMenu({ links, currentPath }: MobileMenuProps) {
                           href={withBase(link.href)}
                           className={`block rounded-2xl border px-4 py-4 text-2xl font-semibold tracking-tight transition-colors ${
                             isActive(link.href)
-                              ? 'border-sky-400/40 bg-sky-400/12 text-sky-100 shadow-[0_0_0_1px_rgba(125,211,252,0.1)]'
-                              : 'border-white/10 bg-white/5 text-white/88 hover:border-white/20 hover:bg-white/10 hover:text-white'
+                                ? 'border-primary-300/55 bg-primary-500/22 text-primary-50 shadow-[0_0_0_1px_rgba(158,178,112,0.18)]'
+                                : 'border-secondary-400/35 bg-secondary-700/28 text-primary-100/90 hover:border-primary-300/45 hover:bg-secondary-600/36 hover:text-primary-50'
                           }`}
                           aria-current={isActive(link.href) ? 'page' : undefined}
                           onClick={() => setIsOpen(false)}
@@ -149,9 +154,9 @@ export default function MobileMenu({ links, currentPath }: MobileMenuProps) {
                     </ul>
                   </nav>
 
-                  <div className="mt-10 rounded-3xl border border-white/10 bg-white/6 p-5 backdrop-blur">
-                    <p className="text-sm font-medium text-sky-100">Backend Developer</p>
-                    <p className="mt-2 text-sm leading-6 text-white/70">
+                  <div className="mt-10 rounded-3xl border border-secondary-400/35 bg-secondary-700/34 p-5 backdrop-blur">
+                    <p className="text-sm font-medium text-primary-100">Backend Developer</p>
+                    <p className="mt-2 text-sm leading-6 text-primary-100/75">
                       Building software with a focus on APIs, systems, and reliable delivery.
                     </p>
                   </div>
