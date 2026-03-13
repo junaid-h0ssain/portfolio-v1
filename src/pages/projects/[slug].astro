@@ -134,18 +134,18 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
 
         <!-- MDX Content -->
         <div class="prose prose-lg dark:prose-invert max-w-none
-                    prose-headings:font-bold prose-headings:text-primary-50
+                    prose-headings:font-bold prose-headings:text-white-smoke
                     prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
                     prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-                    prose-p:text-primary-100/85 prose-p:leading-relaxed
-                    prose-a:text-primary-300 prose-a:no-underline hover:prose-a:underline
-                    prose-code:text-primary-200 prose-code:bg-secondary-700/55 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
-                    prose-pre:relative prose-pre:bg-secondary-950 prose-pre:text-primary-100 prose-pre:rounded-xl prose-pre:shadow-lg
-                    prose-strong:text-primary-50
-                    prose-ul:text-primary-100/85
-                    prose-ol:text-primary-100/85
-                    prose-li:text-primary-100/85
-                    prose-blockquote:border-primary-500 prose-blockquote:text-primary-100/75
+                    prose-p:text-white-smoke/85 prose-p:leading-relaxed
+                    prose-a:text-dusty-taupe prose-a:no-underline hover:prose-a:underline
+                    prose-code:text-dusty-taupe-200 prose-code:bg-jet-black/55 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+                    prose-pre:relative prose-pre:bg-black prose-pre:text-white-smoke prose-pre:rounded-xl prose-pre:shadow-lg
+                    prose-strong:text-white-smoke
+                    prose-ul:text-white-smoke/85
+                    prose-ol:text-white-smoke/85
+                    prose-li:text-white-smoke/85
+                    prose-blockquote:border-dusty-taupe prose-blockquote:text-white-smoke/75
                     prose-img:rounded-lg prose-img:shadow-md">
           <Content />
         </div>
@@ -220,19 +220,19 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
   /* ── Hero ── */
   .project-hero {
     background: linear-gradient(135deg,
-      var(--midnight-violet) 0%,
-      var(--chocolate-plum) 45%,
-      var(--onyx) 100%);
+      var(--jet-black) 0%,
+      var(--stone-brown) 45%,
+      var(--black) 100%);
     padding: 3.5rem 0 3rem;
-    border-bottom: 1px solid rgb(123 159 82 / 0.45);
+    border-bottom: 1px solid var(--color-dusty-taupe-700);
     animation: fadeUp 0.5s ease both;
   }
   :global(.dark) .project-hero {
     background: linear-gradient(135deg,
-      var(--midnight-violet) 0%,
-      var(--chocolate-plum) 40%,
-      var(--onyx) 100%);
-    border-bottom-color: rgb(123 159 82 / 0.45);
+      var(--jet-black) 0%,
+      var(--stone-brown) 40%,
+      var(--black) 100%);
+    border-bottom-color: var(--color-dusty-taupe-700);
   }
   .project-hero-inner {
     max-width: 780px;
@@ -247,14 +247,14 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    background: linear-gradient(135deg, rgb(158 178 112), rgb(123 159 82));
-    color: rgb(15 14 17);
+    background: linear-gradient(135deg, var(--color-dusty-taupe-400), var(--color-dusty-taupe-600));
+    color: var(--black);
     border-radius: 9999px;
-    box-shadow: 0 2px 8px rgb(158 178 112 / 0.35);
+    box-shadow: 0 2px 8px var(--color-dusty-taupe-500);
   }
   :global(.dark) .featured-badge {
-    background: linear-gradient(135deg, rgb(158 178 112), rgb(123 159 82));
-    color: rgb(15 14 17);
+    background: linear-gradient(135deg, var(--color-dusty-taupe-400), var(--color-dusty-taupe-600));
+    color: var(--black);
   }
 
   .project-title {
@@ -262,18 +262,18 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
     font-weight: 800;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    color: rgb(245 244 242);
+    color: var(--white-smoke);
     margin-bottom: 1rem;
   }
-  :global(.dark) .project-title { color: rgb(245 244 242); }
+  :global(.dark) .project-title { color: var(--white-smoke); }
 
   .project-description {
     font-size: 1.125rem;
     line-height: 1.7;
-    color: rgb(231 238 216 / 0.9);
+    color: var(--color-white-smoke-200);
     margin-bottom: 1.5rem;
   }
-  :global(.dark) .project-description { color: rgb(231 238 216 / 0.9); }
+  :global(.dark) .project-description { color: var(--color-white-smoke-200); }
 
   .project-meta {
     display: flex;
@@ -287,9 +287,9 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
     gap: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: rgb(231 238 216 / 0.84);
+    color: var(--color-white-smoke-300);
   }
-  :global(.dark) .meta-item { color: rgb(231 238 216 / 0.78); }
+  :global(.dark) .meta-item { color: var(--color-white-smoke-400); }
   .meta-icon { width: 1.125rem; height: 1.125rem; flex-shrink: 0; }
 
   .action-buttons {
@@ -309,31 +309,31 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
     transition: all 0.2s;
   }
   .btn-primary {
-    background: rgb(123 159 82);
-    color: rgb(15 14 17);
-    border: 1px solid rgb(158 178 112);
+    background: var(--dusty-taupe);
+    color: var(--black);
+    border: 1px solid var(--color-dusty-taupe-400);
   }
   .btn-primary:hover {
-    background: rgb(158 178 112);
+    background: var(--color-dusty-taupe-400);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgb(158 178 112 / 0.34);
+    box-shadow: 0 4px 12px var(--color-dusty-taupe-600);
   }
   .btn-secondary {
-    background: rgb(55 37 53 / 0.58);
-    color: rgb(231 238 216 / 0.9);
-    border: 1px solid rgb(103 77 81 / 0.68);
+    background: var(--jet-black);
+    color: var(--white-smoke);
+    border: 1px solid var(--color-stone-brown-700);
   }
   .btn-secondary:hover {
-    background: rgb(103 77 81 / 0.5);
-    border-color: rgb(158 178 112 / 0.46);
+    background: var(--color-stone-brown-800);
+    border-color: var(--color-dusty-taupe-600);
   }
   :global(.dark) .btn-secondary {
-    background: rgb(55 37 53 / 0.58);
-    color: rgb(231 238 216 / 0.9);
-    border-color: rgb(103 77 81 / 0.68);
+    background: var(--jet-black);
+    color: var(--white-smoke);
+    border-color: var(--color-stone-brown-700);
   }
   :global(.dark) .btn-secondary:hover {
-    background: rgb(103 77 81 / 0.5);
+    background: var(--color-stone-brown-800);
   }
 
   /* ── Layout ── */
@@ -362,17 +362,17 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
   .tech-section {
     margin-bottom: 2.5rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgb(103 77 81 / 0.62);
+    border-bottom: 1px solid var(--color-stone-brown-800);
   }
-  :global(.dark) .tech-section { border-bottom-color: rgb(103 77 81 / 0.62); }
+  :global(.dark) .tech-section { border-bottom-color: var(--color-stone-brown-800); }
 
   .section-heading {
     font-size: 1.5rem;
     font-weight: 700;
-    color: rgb(231 238 216);
+    color: var(--white-smoke);
     margin-bottom: 1rem;
   }
-  :global(.dark) .section-heading { color: rgb(231 238 216); }
+  :global(.dark) .section-heading { color: var(--white-smoke); }
 
   .tech-grid {
     display: flex;
@@ -384,23 +384,23 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
     font-weight: 600;
-    background: rgb(123 159 82 / 0.2);
-    color: rgb(231 238 216);
-    border: 1px solid rgb(158 178 112 / 0.5);
+    background: var(--color-dusty-taupe-800);
+    color: var(--white-smoke);
+    border: 1px solid var(--color-dusty-taupe-600);
     border-radius: 0.5rem;
     transition: all 0.15s;
   }
   .tech-badge:hover {
-    background: rgb(123 159 82 / 0.3);
+    background: var(--color-dusty-taupe-700);
     transform: translateY(-1px);
   }
   :global(.dark) .tech-badge {
-    background: rgb(123 159 82 / 0.2);
-    color: rgb(231 238 216);
-    border-color: rgb(158 178 112 / 0.5);
+    background: var(--color-dusty-taupe-800);
+    color: var(--white-smoke);
+    border-color: var(--color-dusty-taupe-600);
   }
   :global(.dark) .tech-badge:hover {
-    background: rgb(123 159 82 / 0.3);
+    background: var(--color-dusty-taupe-700);
   }
 
   /* ── Sidebar ── */
@@ -415,28 +415,28 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
       position: sticky;
       top: 5.5rem;
       padding: 1.5rem;
-      background: rgb(55 37 53 / 0.62);
-      border: 1px solid rgb(103 77 81 / 0.65);
+      background: var(--jet-black);
+      border: 1px solid var(--color-stone-brown-800);
       border-radius: 0.75rem;
       box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
     }
     :global(.dark) .sidebar-inner {
-      background: rgb(55 37 53 / 0.62);
-      border-color: rgb(103 77 81 / 0.65);
+      background: var(--jet-black);
+      border-color: var(--color-stone-brown-800);
     }
   }
 
   .sidebar-heading {
     font-size: 1rem;
     font-weight: 700;
-    color: rgb(245 244 242);
+    color: var(--white-smoke);
     margin-bottom: 1.25rem;
     padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgb(103 77 81 / 0.65);
+    border-bottom: 1px solid var(--color-stone-brown-800);
   }
   :global(.dark) .sidebar-heading {
-    color: rgb(245 244 242);
-    border-bottom-color: rgb(103 77 81 / 0.65);
+    color: var(--white-smoke);
+    border-bottom-color: var(--color-stone-brown-800);
   }
 
   .sidebar-section {
@@ -447,24 +447,24 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: rgb(231 238 216 / 0.74);
+    color: var(--color-white-smoke-400);
     margin-bottom: 0.375rem;
   }
-  :global(.dark) .sidebar-label { color: rgb(231 238 216 / 0.74); }
+  :global(.dark) .sidebar-label { color: var(--color-white-smoke-400); }
 
   .sidebar-value {
     font-size: 0.9375rem;
     font-weight: 500;
-    color: rgb(231 238 216 / 0.92);
+    color: var(--color-white-smoke-100);
   }
-  :global(.dark) .sidebar-value { color: rgb(231 238 216 / 0.92); }
+  :global(.dark) .sidebar-value { color: var(--color-white-smoke-100); }
 
   .sidebar-divider {
     height: 1px;
-    background: rgb(103 77 81 / 0.65);
+    background: var(--color-stone-brown-800);
     margin: 1.5rem 0;
   }
-  :global(.dark) .sidebar-divider { background: rgb(103 77 81 / 0.65); }
+  :global(.dark) .sidebar-divider { background: var(--color-stone-brown-800); }
 
   .sidebar-links {
     display: flex;
@@ -478,33 +478,33 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
     padding: 0.625rem 0.875rem;
     font-size: 0.875rem;
     font-weight: 600;
-    color: rgb(231 238 216);
-    background: rgb(123 159 82 / 0.18);
-    border: 1px solid rgb(158 178 112 / 0.46);
+    color: var(--white-smoke);
+    background: var(--color-dusty-taupe-900);
+    border: 1px solid var(--color-dusty-taupe-700);
     border-radius: 0.5rem;
     text-decoration: none;
     transition: all 0.15s;
   }
   .sidebar-link:hover {
-    background: rgb(123 159 82 / 0.28);
+    background: var(--color-dusty-taupe-800);
     transform: translateX(2px);
   }
   :global(.dark) .sidebar-link {
-    color: rgb(231 238 216);
-    background: rgb(123 159 82 / 0.18);
-    border-color: rgb(158 178 112 / 0.46);
+    color: var(--white-smoke);
+    background: var(--color-dusty-taupe-900);
+    border-color: var(--color-dusty-taupe-700);
   }
   :global(.dark) .sidebar-link:hover {
-    background: rgb(123 159 82 / 0.28);
+    background: var(--color-dusty-taupe-800);
   }
 
   /* ── Footer ── */
   .project-footer {
     margin-top: 3rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgb(103 77 81 / 0.62);
+    border-top: 1px solid var(--color-stone-brown-800);
   }
-  :global(.dark) .project-footer { border-top-color: rgb(103 77 81 / 0.62); }
+  :global(.dark) .project-footer { border-top-color: var(--color-stone-brown-800); }
 
   .project-footer-inner {
     display: flex;
@@ -520,24 +520,24 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
     font-weight: 600;
-    color: rgb(231 238 216);
-    background: rgb(123 159 82 / 0.16);
-    border: 1px solid rgb(158 178 112 / 0.45);
+    color: var(--white-smoke);
+    background: var(--color-dusty-taupe-900);
+    border: 1px solid var(--color-dusty-taupe-700);
     border-radius: 0.5rem;
     text-decoration: none;
     transition: background 0.15s, border-color 0.15s;
   }
   .back-btn:hover {
-    background: rgb(123 159 82 / 0.24);
-    border-color: rgb(158 178 112 / 0.62);
+    background: var(--color-dusty-taupe-800);
+    border-color: var(--color-dusty-taupe-600);
   }
   :global(.dark) .back-btn {
-    color: rgb(231 238 216);
-    background: rgb(123 159 82 / 0.16);
-    border-color: rgb(158 178 112 / 0.45);
+    color: var(--white-smoke);
+    background: var(--color-dusty-taupe-900);
+    border-color: var(--color-dusty-taupe-700);
   }
   :global(.dark) .back-btn:hover {
-    background: rgb(123 159 82 / 0.24);
+    background: var(--color-dusty-taupe-800);
   }
 
   .share-btn {
@@ -547,24 +547,24 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
     font-weight: 600;
-    color: rgb(231 238 216 / 0.88);
-    background: rgb(55 37 53 / 0.56);
-    border: 1px solid rgb(103 77 81 / 0.68);
+    color: var(--white-smoke);
+    background: var(--jet-black);
+    border: 1px solid var(--color-stone-brown-800);
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background 0.15s, border-color 0.15s, color 0.15s;
   }
   .share-btn:hover {
-    background: rgb(103 77 81 / 0.52);
-    border-color: rgb(158 178 112 / 0.46);
+    background: var(--color-stone-brown-900);
+    border-color: var(--color-dusty-taupe-600);
   }
   :global(.dark) .share-btn {
-    color: rgb(231 238 216 / 0.88);
-    background: rgb(55 37 53 / 0.56);
-    border-color: rgb(103 77 81 / 0.68);
+    color: var(--white-smoke);
+    background: var(--jet-black);
+    border-color: var(--color-stone-brown-800);
   }
   :global(.dark) .share-btn:hover {
-    background: rgb(103 77 81 / 0.52);
+    background: var(--color-stone-brown-900);
   }
 
   /* ── Animations ── */
@@ -591,7 +591,7 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
       badge.style.cssText = `
         position:absolute; top:0.6rem; left:0.9rem;
         font-size:0.65rem; font-weight:700; letter-spacing:0.08em;
-        text-transform:uppercase; color:rgb(148 163 184);
+        text-transform:uppercase; color:var(--color-white-smoke-400);
         pointer-events:none; user-select:none;
       `;
       wrapper.appendChild(badge);
@@ -602,19 +602,19 @@ const projectDuration = `${formattedStartDate} - ${formattedEndDate}`;
     copyBtn.style.cssText = `
       position:absolute; top:0.55rem; right:0.7rem;
       padding:0.2rem 0.6rem; font-size:0.7rem; font-weight:600;
-      background:rgb(51 65 85); color:rgb(203 213 225);
-      border:1px solid rgb(71 85 105); border-radius:0.375rem;
+      background:var(--jet-black); color:var(--white-smoke);
+      border:1px solid var(--color-stone-brown-800); border-radius:0.375rem;
       cursor:pointer; transition:background 0.15s;
     `;
-    copyBtn.onmouseenter = () => copyBtn.style.background = 'rgb(71 85 105)';
-    copyBtn.onmouseleave = () => copyBtn.style.background = 'rgb(51 65 85)';
+    copyBtn.onmouseenter = () => copyBtn.style.background = 'var(--color-stone-brown-900)';
+    copyBtn.onmouseleave = () => copyBtn.style.background = 'var(--jet-black)';
     copyBtn.onclick = async () => {
       await navigator.clipboard.writeText(code?.innerText ?? '');
       copyBtn.textContent = 'Copied!';
-      copyBtn.style.color = 'rgb(134 239 172)';
+      copyBtn.style.color = 'var(--color-dusty-taupe-400)';
       setTimeout(() => {
         copyBtn.textContent = 'Copy';
-        copyBtn.style.color = 'rgb(203 213 225)';
+        copyBtn.style.color = 'var(--white-smoke)';
       }, 1800);
     };
     wrapper.appendChild(copyBtn);

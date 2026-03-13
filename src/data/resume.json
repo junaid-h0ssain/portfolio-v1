@@ -5,7 +5,7 @@
     "email": "junaid0182@outlook.com",
     "phone": "+880 1705150710",
     "location": "Chittagong, Bangladesh",
-    "website": "https://junaid-h0ssain.github.io/",
+    "website": "/",
     "github": "https://github.com/junaid-h0ssain",
     "linkedin": "https://www.linkedin.com/in/junaid-hossain-08a48a391/"
   },
@@ -63,27 +63,60 @@
   "skills": [
     {
       "category": "Frontend",
-      "skills": ["React", "TypeScript", "Tailwind CSS", "Astro", "Svelte"]
+      "skills": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Astro",
+        "Svelte"
+      ]
     },
     {
       "category": "Backend",
-      "skills": ["Java", "Spring Boot", "PostgreSQL", "GO", "Gin"]
+      "skills": [
+        "Java",
+        "Spring Boot",
+        "PostgreSQL",
+        "GO",
+        "Gin"
+      ]
     },
     {
       "category": "DevOps & Tools",
-      "skills": ["Docker", "AWS", "Dockploy", "Git", "GitHub Actions", "CI/CD", "Linux"]
+      "skills": [
+        "Docker",
+        "AWS",
+        "Dockploy",
+        "Git",
+        "GitHub Actions",
+        "CI/CD",
+        "Linux"
+      ]
     },
     {
       "category": "Mobile Development",
-      "skills": ["Dart", "Flutter", "Android Studio"]
+      "skills": [
+        "Dart",
+        "Flutter",
+        "Android Studio"
+      ]
     },
     {
       "category": "Soft Skills",
-      "skills": ["Adaptability", "Problem Solving", "Communication", "Management"]
+      "skills": [
+        "Adaptability",
+        "Problem Solving",
+        "Communication",
+        "Management"
+      ]
     },
     {
       "category": "Languages",
-      "skills": ["English (Fluent)", "Bengali (Native)", "Hindi (Conversational)"]
+      "skills": [
+        "English (Fluent)",
+        "Bengali (Native)",
+        "Hindi (Conversational)"
+      ]
     }
   ],
   "certifications": [
