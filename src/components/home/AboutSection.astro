@@ -47,7 +47,7 @@ const {
     <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
       <!-- Bio Section -->
       <div class="space-y-6">
-        <div class="bg-secondary-800/45 backdrop-blur-sm rounded-2xl p-8 border border-secondary-500/45 hover:border-primary-500/55 transition-colors duration-300">
+        <div class="bg-secondary-800/45 backdrop-blur-sm rounded-2xl p-8 border border-secondary-500/45 transition-colors duration-300 hover:border-primary-500/55">
           <h3 class="text-2xl font-semibold text-primary-400 mb-4 flex items-center gap-2">
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -60,7 +60,7 @@ const {
         </div>
 
         <!-- Social Links -->
-        <div class="bg-secondary-800/45 backdrop-blur-sm rounded-2xl p-8 border border-secondary-500/45 hover:border-primary-500/55 transition-colors duration-300">
+        <div class="bg-secondary-800/45 backdrop-blur-sm rounded-2xl p-8 border border-secondary-500/45">
           <h3 class="text-2xl font-semibold text-secondary-400 mb-6 flex items-center gap-2">
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
@@ -73,7 +73,7 @@ const {
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center gap-2 px-4 py-2 bg-secondary-700/40 hover:bg-secondary-700 text-primary-100/85 hover:text-primary-50 rounded-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-secondary-900"
+                class="flex items-center gap-2 px-4 py-2 border border-secondary-400/45 bg-secondary-700/40 text-primary-100/85 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400/60 hover:bg-secondary-700/55 hover:text-primary-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-secondary-900"
                 aria-label="Visit my GitHub profile"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -87,7 +87,7 @@ const {
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center gap-2 px-4 py-2 bg-secondary-700/40 hover:bg-secondary-700 text-primary-100/85 hover:text-primary-50 rounded-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-secondary-900"
+                class="flex items-center gap-2 px-4 py-2 border border-secondary-400/45 bg-secondary-700/40 text-primary-100/85 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400/60 hover:bg-secondary-700/55 hover:text-primary-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-secondary-900"
                 aria-label="Visit my LinkedIn profile"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -99,7 +99,7 @@ const {
             {socialLinks.email && (
               <a
                 href={socialLinks.email}
-                class="flex items-center gap-2 px-4 py-2 bg-secondary-700/40 hover:bg-secondary-700 text-primary-100/85 hover:text-primary-50 rounded-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-secondary-900"
+                class="flex items-center gap-2 px-4 py-2 border border-secondary-400/45 bg-secondary-700/40 text-primary-100/85 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400/60 hover:bg-secondary-700/55 hover:text-primary-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-secondary-900"
                 aria-label="Send me an email"
               >
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -113,7 +113,7 @@ const {
                 href={socialLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center gap-2 px-4 py-2 bg-secondary-700/40 hover:bg-secondary-700 text-primary-100/85 hover:text-primary-50 rounded-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-secondary-900"
+                class="flex items-center gap-2 px-4 py-2 border border-secondary-400/45 bg-secondary-700/40 text-primary-100/85 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400/60 hover:bg-secondary-700/55 hover:text-primary-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-secondary-900"
                 aria-label="Visit my Instagram profile"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -128,7 +128,7 @@ const {
 
       <!-- Skills Section -->
       <div class="space-y-6">
-        <div class="bg-secondary-800/45 backdrop-blur-sm rounded-2xl p-5 sm:p-8 border border-secondary-500/45 hover:border-primary-500/55 transition-colors duration-300">
+        <div class="bg-secondary-800/45 backdrop-blur-sm rounded-2xl p-5 sm:p-8 border border-secondary-500/45">
           <h3 class="text-2xl font-semibold text-primary-400 mb-6 flex items-center gap-2">
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
@@ -138,7 +138,7 @@ const {
           <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {skills.map((skill) => (
               <div class="group relative h-full">
-                <div class="flex h-full items-center gap-2 rounded-lg border border-secondary-400/45 bg-secondary-700/30 px-3.5 py-3 sm:px-4 hover:border-primary-500/55 hover:bg-secondary-700/50 transition-all duration-200">
+                <div class="flex h-full items-center gap-2 rounded-lg border border-secondary-400/45 bg-secondary-700/30 px-3.5 py-3 sm:px-4 transition-colors duration-200 hover:bg-secondary-700/40">
                   <svg class="w-4 h-4 text-primary-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
