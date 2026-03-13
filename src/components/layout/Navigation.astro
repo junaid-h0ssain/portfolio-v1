@@ -29,13 +29,13 @@ const homeHref = withBase('/');
 <header class={`sticky top-0 z-50 w-full border-b backdrop-blur-sm ${
   isLight
     ? 'border-gray-300/80 bg-white/92'
-    : 'border-secondary-600/70 bg-secondary-950/85'
+    : 'border-jet-black-600/70 bg-black/85'
 }`}>
   <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       <!-- Logo/Brand -->
       <div class="shrink-0">
-        <a href={homeHref} class={`text-xl font-bold ${isLight ? 'text-gray-900' : 'text-primary-200'}`}>
+        <a href={homeHref} class={`text-xl font-bold ${isLight ? 'text-gray-900' : 'text-white-smoke-200'}`}>
           Junaid Hossain
         </a>
       </div>
@@ -47,11 +47,11 @@ const homeHref = withBase('/');
             <a
               href={withBase(link.href)}
               class={`text-sm font-medium transition-colors ${
-                isLight ? 'hover:text-gray-900' : 'hover:text-primary-300'
+                isLight ? 'hover:text-gray-900' : 'hover:text-dusty-taupe-300'
               } ${
                 isActive(link.href)
-                  ? isLight ? 'text-gray-900' : 'text-primary-300'
-                  : isLight ? 'text-gray-600' : 'text-primary-100/80'
+                  ? isLight ? 'text-gray-900' : 'text-dusty-taupe-300'
+                  : isLight ? 'text-gray-600' : 'text-white-smoke-100/80'
               }`}
               aria-current={isActive(link.href) ? 'page' : undefined}
             >

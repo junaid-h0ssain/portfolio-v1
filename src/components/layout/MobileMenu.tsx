@@ -55,7 +55,7 @@ export default function MobileMenu({ links, currentPath, isLight = false }: Mobi
         className={`inline-flex items-center justify-center rounded-md p-2 transition-colors focus:outline-none focus:ring-2 focus:ring-inset ${
           isLight
             ? 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:ring-gray-400'
-            : 'text-primary-100 hover:bg-secondary-700/60 hover:text-primary-200 focus:ring-primary-500'
+            : 'text-white-smoke-100 hover:bg-jet-black-700/60 hover:text-white-smoke-200 focus:ring-dusty-taupe-500'
         }`}
         aria-label="Toggle mobile menu"
         aria-expanded={isOpen}
@@ -85,7 +85,7 @@ export default function MobileMenu({ links, currentPath, isLight = false }: Mobi
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-secondary-950/78 backdrop-blur-sm"
+              className="fixed inset-0 z-40 bg-black/78 backdrop-blur-sm"
               onClick={() => setIsOpen(false)}
               data-testid="mobile-menu-overlay"
               aria-hidden="true"
@@ -97,7 +97,7 @@ export default function MobileMenu({ links, currentPath, isLight = false }: Mobi
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.22, ease: 'easeOut' }}
-              className="fixed inset-0 z-50 flex min-h-dvh flex-col overflow-y-auto bg-[radial-gradient(circle_at_top,rgba(158,178,112,0.16),transparent_40%),linear-gradient(180deg,rgba(55,37,53,0.98),rgba(15,14,17,0.98))] text-primary-50"
+              className="fixed inset-0 z-50 flex min-h-dvh flex-col overflow-y-auto bg-[radial-gradient(circle_at_top,rgba(169,146,125,0.16),transparent_40%),linear-gradient(180deg,rgba(34,51,59,0.98),rgba(10,9,8,0.98))] text-white-smoke"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation menu"
@@ -106,14 +106,14 @@ export default function MobileMenu({ links, currentPath, isLight = false }: Mobi
                 <div className="flex items-center justify-between border-b border-secondary-500/35 pb-4">
                   <a
                     href={homeHref}
-                    className="text-lg font-semibold tracking-tight text-primary-100"
+                    className="text-lg font-semibold tracking-tight text-white-smoke-100"
                     onClick={() => setIsOpen(false)}
                   >
                     Junaid Hossain
                   </a>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="rounded-full border border-secondary-400/35 p-2 text-primary-100/85 transition-colors hover:border-primary-300/60 hover:bg-secondary-500/25 hover:text-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-400"
+                    className="rounded-full border border-jet-black-400/35 p-2 text-white-smoke-100/85 transition-colors hover:border-dusty-taupe-300/60 hover:bg-jet-black-500/25 hover:text-white-smoke focus:outline-none focus:ring-2 focus:ring-dusty-taupe-400"
                     aria-label="Close mobile menu"
                   >
                     <svg
@@ -130,7 +130,7 @@ export default function MobileMenu({ links, currentPath, isLight = false }: Mobi
                 </div>
 
                 <div className="flex flex-1 flex-col justify-center py-10">
-                  <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-primary-200/70">
+                  <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-white-smoke-200/70">
                     Navigate
                   </p>
                   <nav>
@@ -141,8 +141,8 @@ export default function MobileMenu({ links, currentPath, isLight = false }: Mobi
                           href={withBase(link.href)}
                           className={`block rounded-2xl border px-4 py-4 text-2xl font-semibold tracking-tight transition-colors ${
                             isActive(link.href)
-                                ? 'border-primary-300/55 bg-primary-500/22 text-primary-50 shadow-[0_0_0_1px_rgba(158,178,112,0.18)]'
-                                : 'border-secondary-400/35 bg-secondary-700/28 text-primary-100/90 hover:border-primary-300/45 hover:bg-secondary-600/36 hover:text-primary-50'
+                                ? 'border-dusty-taupe-300/55 bg-dusty-taupe-500/22 text-white-smoke shadow-[0_0_0_1px_rgba(169,146,125,0.18)]'
+                                : 'border-jet-black-400/35 bg-jet-black-700/28 text-white-smoke-100/90 hover:border-dusty-taupe-300/45 hover:bg-jet-black-600/36 hover:text-white-smoke'
                           }`}
                           aria-current={isActive(link.href) ? 'page' : undefined}
                           onClick={() => setIsOpen(false)}
@@ -154,9 +154,9 @@ export default function MobileMenu({ links, currentPath, isLight = false }: Mobi
                     </ul>
                   </nav>
 
-                  <div className="mt-10 rounded-3xl border border-secondary-400/35 bg-secondary-700/34 p-5 backdrop-blur">
-                    <p className="text-sm font-medium text-primary-100">Backend Developer</p>
-                    <p className="mt-2 text-sm leading-6 text-primary-100/75">
+                  <div className="mt-10 rounded-3xl border border-jet-black-400/35 bg-jet-black-700/34 p-5 backdrop-blur">
+                    <p className="text-sm font-medium text-white-smoke-100">Backend Developer</p>
+                    <p className="mt-2 text-sm leading-6 text-white-smoke-100/75">
                       Building software with a focus on APIs, systems, and reliable delivery.
                     </p>
                   </div>
