@@ -17,7 +17,7 @@ export default function HeroSection({
   const resumeHref = withBase('/resume');
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden bg-linear-to-b from-secondary-900 via-secondary-800 to-secondary-950">
+    <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden ">
       {/* Background layers */}
       <div className="absolute inset-0 overflow-hidden">
         <div

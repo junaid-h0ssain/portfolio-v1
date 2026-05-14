@@ -2,16 +2,16 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --onyx: #0f0e11;
-  --midnight-violet: #372535;
-  --chocolate-plum: #674d51;
+  --onyx: #c5c5c5;
+  --midnight-violet: #f5f2f5;
+  --chocolate-plum: #e8c4c9;
   --muted-olive: #9eb270;
   --sage-green: #7b9f52;
 
   --bg: var(--onyx);
   --surface: #1b161d;
   --surface-strong: var(--midnight-violet);
-  --text: #f5f4f2;
+  --text: #000000;
   --text-muted: #c7c0b8;
   --accent: var(--sage-green);
   --accent-strong: var(--muted-olive);

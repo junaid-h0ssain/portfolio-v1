@@ -12,7 +12,7 @@ const { title, description, technologies, repositoryUrl, liveUrl, thumbnail } = 
 ---
 
 <article class="bg-secondary-800/50 border border-secondary-500/40 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-  <a href={withBase(`/projects/${project.slug}`)} class="block">
+  <a href={withBase(`/projects/${project.id}`)} class="block">
     <div class="relative aspect-video overflow-hidden">
       <Image 
         src={thumbnail}
@@ -31,7 +31,7 @@ const { title, description, technologies, repositoryUrl, liveUrl, thumbnail } = 
         {description}
       </p>
       <div class="flex flex-wrap gap-2 mb-4">
-        {technologies.map((tech) => (
+        {technologies.map((tech: string) => (
           <span class="px-3 py-1 text-sm bg-primary-500/20 text-primary-200 border border-primary-400/35 rounded-full">
             {tech}
           </span>
