@@ -11,7 +11,8 @@ const data: ResumeData = resumeData;
   title="Resume - Junaid Hossain"
   description="Professional resume of Junaid Hossain, Full Stack Developer"
   image="/og-resume.png"
-  theme="light"
+  bodyClass="bg-white text-black"
+  navIsLight={true}
 >
   <head>
     <meta name="robots" content="index, follow" />
@@ -26,7 +27,7 @@ const data: ResumeData = resumeData;
           margin: 0.5in;
           size: letter;
         }
-        
+      
         body {
           margin: 0;
           padding: 0;
@@ -36,7 +37,9 @@ const data: ResumeData = resumeData;
     </style>
   </head>
   
-  <main class="min-h-screen bg-white py-8 print:bg-white print:py-0">
+  <main
+    class="min-h-screen bg-white py-8 text-black print:bg-white print:py-0 print:text-black"
+  >
     <div class="print:max-w-full">
       <ResumeSection data={data} />
     </div>

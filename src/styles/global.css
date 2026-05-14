@@ -2,9 +2,9 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --onyx: #c5c5c5;
-  --midnight-violet: #f5f2f5;
-  --chocolate-plum: #e8c4c9;
+  --onyx: #67787c;
+  --midnight-violet: #394447;
+  --chocolate-plum: #67787c;
   --muted-olive: #9eb270;
   --sage-green: #7b9f52;
 
@@ -12,7 +12,7 @@
   --surface: #1b161d;
   --surface-strong: var(--midnight-violet);
   --text: #000000;
-  --text-muted: #c7c0b8;
+  --text-muted: #000000;
   --accent: var(--sage-green);
   --accent-strong: var(--muted-olive);
   --border: #5a464c;
@@ -26,13 +26,6 @@ html {
 body {
   background-color: var(--bg);
   color: var(--text);
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--bg);
-    color: var(--text);
-  }
 }
 
 /* Focus styles for accessibility */

@@ -10,10 +10,9 @@ interface NavigationLink {
 interface MobileMenuProps {
   links: NavigationLink[];
   currentPath: string;
-  isLight?: boolean;
 }
 
-export default function MobileMenu({ links, currentPath, isLight = false }: MobileMenuProps) {
+export default function MobileMenu({ links, currentPath }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const homeHref = withBase('/');
 
@@ -52,11 +51,7 @@ export default function MobileMenu({ links, currentPath, isLight = false }: Mobi
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`inline-flex items-center justify-center rounded-md p-2 transition-colors focus:outline-none focus:ring-2 focus:ring-inset ${
-          isLight
-            ? 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:ring-gray-400'
-            : 'text-primary-100 hover:bg-secondary-700/60 hover:text-primary-200 focus:ring-primary-500'
-        }`}
+        className="inline-flex items-center justify-center rounded-md p-2 text-primary-100 transition-colors hover:bg-secondary-700/60 hover:text-primary-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
         aria-label="Toggle mobile menu"
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
