@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import Navigation from './Navigation.astro';
 import { stripBase, withBase } from '../../lib/utils';
 import '../../styles/global.css';
@@ -45,7 +45,7 @@ const isLightTheme = theme === 'light';
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class={isLightTheme ? 'bg-white text-gray-900' : undefined}>
     <Navigation currentPath={currentPath} isLight={isLightTheme} />

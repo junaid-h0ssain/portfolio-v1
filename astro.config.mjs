@@ -17,7 +17,7 @@ export default defineConfig({
   integrations: [react(), mdx()],
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [/** @type {any} */ (tailwindcss())]
   },
 
   ...(isGitHubPagesBuild ? {} : { adapter: cloudflare() })

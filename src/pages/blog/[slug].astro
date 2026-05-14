@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../../components/layout/BaseLayout.astro';
 import { withBase } from '../../lib/utils';
@@ -7,7 +8,7 @@ import { withBase } from '../../lib/utils';
 export async function getStaticPaths() {
   const blogPosts = await getCollection('blog');
   return blogPosts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.data.id },
     props: { post },
   }));
 }
@@ -17,7 +18,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { Content, headings } = await post.render();
+const { Content, headings } = await render(post);
 const { title, description, pubDate, tags, author, image } = post.data;
 
 // Format date
