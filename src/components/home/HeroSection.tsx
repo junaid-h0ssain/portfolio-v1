@@ -14,13 +14,10 @@ export default function HeroSection({
   name,
   title,
   description,
-  headshotSrc = '/headshot-placeholder.svg',
-  headshotAlt,
 }: HeroSectionProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const projectsHref = withBase('/projects');
   const resumeHref = withBase('/resume');
-  const resolvedHeadshotSrc = withBase(headshotSrc);
 
   // Generate particles once and memoize to prevent re-creation on every render
   const particles = useMemo(() => {
@@ -41,8 +38,6 @@ export default function HeroSection({
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  const resolvedHeadshotAlt = headshotAlt ?? `${name || 'Portfolio'} headshot`;
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-b from-secondary-900 via-secondary-800 to-secondary-950">
@@ -140,29 +135,15 @@ export default function HeroSection({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 px-4 py-16 pb-28 sm:px-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:gap-16 lg:px-8">
-        <div className="text-center lg:text-left">
+      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 py-16 pb-28 text-center sm:px-6 lg:px-8">
+        <div className="flex w-full flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <h1 className="text-5xl font-bold text-primary-50 sm:text-6xl md:text-7xl">
-              {name.split('').map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.05,
-                    ease: 'easeOut',
-                  }}
-                  className="inline-block"
-                >
-                  {char === ' ' ? '\u00A0' : char}
-                </motion.span>
-              ))}
+            <h1 className="mx-auto max-w-[12ch] text-balance text-5xl font-bold leading-[0.95] text-primary-50 sm:text-6xl md:text-7xl lg:max-w-none">
+              {name}
             </h1>
           </motion.div>
 
@@ -181,7 +162,7 @@ export default function HeroSection({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
           >
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-primary-100/85 sm:text-xl lg:mx-0">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-primary-100/85 sm:text-xl">
               {description}
             </p>
           </motion.div>
@@ -190,7 +171,7 @@ export default function HeroSection({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9, ease: 'easeOut' }}
-            className="mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start"
+            className="mt-10 flex flex-col justify-center gap-4 sm:flex-row"
           >
             <motion.a
               href={projectsHref}
@@ -211,37 +192,7 @@ export default function HeroSection({
               View Resume
             </motion.a>
           </motion.div>
-
         </div>
-
-        <motion.figure
-          initial={{ opacity: 0, scale: 0.92, y: 24 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.45, ease:'easeOut' }}
-          className="relative mx-auto w-full max-w-sm"
-        >
-          <div className="absolute inset-0 rounded-4xl bg-linear-to-br from-primary-500/28 via-primary-400/10 to-secondary-500/26 blur-2xl" />
-          <div className="relative overflow-hidden rounded-4xl border border-primary-200/15 bg-secondary-900/35 p-3 shadow-2xl shadow-secondary-950/55 backdrop-blur-sm">
-            <div className="relative aspect-4/5 overflow-hidden rounded-3xl bg-secondary-950">
-              <img
-                src={resolvedHeadshotSrc}
-                alt={resolvedHeadshotAlt}
-                className="h-full w-full object-cover"
-                loading="eager"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-secondary-950 via-secondary-950/50 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.35em] text-primary-100/70">Focused on</p>
-                  <p className="mt-2 text-lg font-semibold text-primary-50">Systems, APIs, and shipping reliably</p>
-                </div>
-                <div className="shrink-0 rounded-full border border-primary-300/45 bg-primary-500/20 px-3 py-1 text-xs font-medium text-primary-100">
-                  Open to work
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.figure>
       </div>
 
       <motion.div

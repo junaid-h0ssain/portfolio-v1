@@ -18,11 +18,9 @@ describe('HeroSection Component', () => {
     it('should render name prop', () => {
       const { container } = render(<HeroSection {...mockProps} />);
       
-      // Name is split into individual characters for animation
       const h1 = container.querySelector('h1');
       expect(h1).toBeInTheDocument();
-      // Space is converted to non-breaking space for animation
-      expect(h1?.textContent?.replace(/\u00A0/g, ' ')).toBe('John Doe');
+      expect(h1?.textContent).toBe('John Doe');
     });
 
     it('should render title prop', () => {
@@ -40,9 +38,8 @@ describe('HeroSection Component', () => {
     it('should render all props correctly', () => {
       const { container } = render(<HeroSection {...mockProps} />);
       
-      // Name is split into characters for animation
       const h1 = container.querySelector('h1');
-      expect(h1?.textContent?.replace(/\u00A0/g, ' ')).toBe(mockProps.name);
+      expect(h1?.textContent).toBe(mockProps.name);
       expect(screen.getByText(mockProps.title)).toBeInTheDocument();
       expect(screen.getByText(mockProps.description)).toBeInTheDocument();
     });
@@ -104,13 +101,6 @@ describe('HeroSection Component', () => {
       expect(svg).toBeInTheDocument();
     });
 
-    it('should render the headshot image with alt text', () => {
-      render(<HeroSection {...mockProps} />);
-
-      const headshot = screen.getByAltText('Portrait of John Doe');
-      expect(headshot).toBeInTheDocument();
-      expect(headshot).toHaveAttribute('src', '/headshot-placeholder.svg');
-    });
   });
 
   describe('Animation elements', () => {
@@ -130,12 +120,6 @@ describe('HeroSection Component', () => {
       expect(content).toBeInTheDocument();
     });
 
-    it('should render the portrait panel copy', () => {
-      render(<HeroSection {...mockProps} />);
-
-      expect(screen.getByText('Open to work')).toBeInTheDocument();
-      expect(screen.getByText('Systems, APIs, and shipping reliably')).toBeInTheDocument();
-    });
   });
 
   describe('Responsive design', () => {
@@ -149,7 +133,7 @@ describe('HeroSection Component', () => {
     it('should have responsive button layout', () => {
       const { container } = render(<HeroSection {...mockProps} />);
       
-      const buttonContainer = container.querySelector('.flex.flex-col.sm\\:flex-row');
+      const buttonContainer = container.querySelector('.mt-10.flex.flex-col');
       expect(buttonContainer).toBeInTheDocument();
     });
   });
