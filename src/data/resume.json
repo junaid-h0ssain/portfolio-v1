@@ -7,7 +7,7 @@
     "location": "181/E, Halishahar, Chittagong, Bangladesh.",
     "website": "https://junaid-h0ssain.github.io/",
     "github": "github.com/junaid-h0ssain",
-    "linkedin": "linkedin.com/in/junaid-hossain-08a48a391"
+    "linkedin": "linkedin.com/in/junaid-h0ssain"
   },
   "profile": [
     "Detail-oriented and highly motivated Computer Science undergraduate with strong analytical, organizational, and communication skills. Experienced in handling technical projects, data-oriented tasks, and problem-solving through academic and personal projects. Quick learner with a strong passion for data analysis, quality assurance, and creating structured presentations and reports. Seeking to contribute to Catalyst Solutions through dedication, accuracy, and continuous learning."
@@ -70,15 +70,15 @@
     },
     {
       "category": "IT",
-      "skills": ["Docker", "Git", "Linux (Fedora, Ubuntu)"]
+      "skills": ["Docker", "Git", "GitHub", "Linux (Fedora, Ubuntu)"]
     },
     {
-      "category": "Soft Skills",
-      "skills": ["Adaptability", "Problem Solving", "Communication", "Management"]
+      "category": "Administrative",
+      "skills":["Microsoft Word", "Google Docs", "PowerPoint"]
     },
     {
-      "category": "Languages",
-      "skills": ["English (Fluent)", "Bengali (Native)", "Hindi (Conversational)"]
+      "category": "Software",
+      "skills": ["Visual Studio Code", "IntelliJ IDEA", "MySQL Workbench", "Postman", "DB Browser"]
     }
   ],
   "certifications": [
@@ -100,5 +100,11 @@
       "date": "2024",
       "url": "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzMjIwIiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvNzkyMDE1M184MjU0NzQ0MTczOTgyMDA4ODE0Ny5wbmciLCJ1c2VybmFtZSI6Ikp1bmFpZCBIb3NzYWluIn0%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F6003%2FMobile-App-Development---Android-App-Development-for-Beginners%2Fcertificate%2Fdownload-skillup&%24web_only=true"
     }
+  ],
+  "softSkills": [
+    "Adaptability", "Problem Solving", "Communication", "Teamwork & Collaboration", "Time Management", "Attention to Detail"
+  ],
+  "language": [
+    "English (Fluent)", "Bengali (Native)", "Hindi (Conversational)"
   ]
 }
