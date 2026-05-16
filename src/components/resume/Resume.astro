@@ -8,7 +8,7 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<div class="min-h-screen bg-white text-gray-900 print:bg-white">
+<div class="resume-sheet min-h-screen bg-white text-gray-900 print:bg-white">
   <!-- Header Section -->
   <header class="border-b border-gray-200 pb-6 mb-6 print:pb-4 print:mb-4">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,7 +39,23 @@ const { data } = Astro.props;
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <main class="resume-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Profile Section -->
+      {data.profile && data.profile.length > 0 && (
+        <section class="mb-8 print:mb-4">
+          <h2 class="text-2xl font-bold mb-4 border-b border-gray-300 pb-2 print:text-xl print:mb-2 print:pb-1">
+            Profile
+          </h2>
+          <div class="space-y-3 print:space-y-2">
+            {data.profile.map((paragraph) => (
+              <p class="text-gray-700 text-sm leading-6 print:text-xs print:leading-tight">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </section>
+      )}
+
     <!-- Experience Section -->
     {data.experience && data.experience.length > 0 && (
       <section class="mb-8 print:mb-4">
@@ -165,13 +181,70 @@ const { data } = Astro.props;
 
 <style>
   @media print {
+    .resume-sheet {
+      display: block;
+      overflow: hidden;
+      zoom: 0.85;
+    }
+
+    .resume-content {
+      width: 100%;
+    }
+
+    .resume-sheet header,
+    .resume-sheet section {
+      break-inside: avoid;
+    }
+
+    .resume-sheet header {
+      padding-bottom: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .resume-sheet section {
+      margin-bottom: 0.85rem;
+    }
+
+    .resume-sheet h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .resume-sheet h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+      padding-bottom: 0.2rem;
+    }
+
+    .resume-sheet h3 {
+      font-size: 0.95rem;
+    }
+
+    .resume-sheet p,
+    .resume-sheet li,
+    .resume-sheet span,
+    .resume-sheet a {
+      font-size: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .resume-sheet .space-y-6 > * + *,
+    .resume-sheet .space-y-4 > * + *,
+    .resume-sheet .space-y-3 > * + * {
+      margin-top: 0.4rem;
+    }
+
+    .resume-sheet ul {
+      margin-bottom: 0.25rem;
+    }
+
     :global(body) {
       margin: 0;
       padding: 0;
     }
     
     @page {
-      margin: 0.5in;
+      margin: 0.35in;
       size: letter;
     }
   }

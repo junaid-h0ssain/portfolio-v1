@@ -4,11 +4,14 @@
     "title": "Junior Backend Developer",
     "email": "junaid0182@outlook.com",
     "phone": "+880 1705150710",
-    "location": "181/E, Halishahar, Chittagong, Bangladesh",
+    "location": "181/E, Halishahar, Chittagong, Bangladesh.",
     "website": "https://junaid-h0ssain.github.io/",
     "github": "github.com/junaid-h0ssain",
     "linkedin": "linkedin.com/in/junaid-hossain-08a48a391"
   },
+  "profile": [
+    "Detail-oriented and highly motivated Computer Science undergraduate with strong analytical, organizational, and communication skills. Experienced in handling technical projects, data-oriented tasks, and problem-solving through academic and personal projects. Quick learner with a strong passion for data analysis, quality assurance, and creating structured presentations and reports. Seeking to contribute to Catalyst Solutions through dedication, accuracy, and continuous learning."
+  ],
   "education": [
     {
       "institution": "East Delta University",
@@ -54,8 +57,8 @@
       "endDate": "2021",
       "description": "Provided excellent customer service and managed inventory for a busy retail store",
       "achievements": [
-        "Consistently exceeded monthly sales targets by 5%",
-        "Received Employee of the Month award twice for outstanding performance"
+        "Consistently exceeded monthly sales targets",
+        "Received Employee of the Month award for outstanding performance"
       ],
       "technologies": []
     }
@@ -66,7 +69,7 @@
       "skills": ["Java", "Typescript", "Python", "GO"]
     },
     {
-      "category": "DevOps & Tools",
+      "category": "IT",
       "skills": ["Docker", "Git", "Linux (Fedora, Ubuntu)"]
     },
     {
@@ -88,13 +91,13 @@
     {
       "name": "Dart & Flutter | Complete Flutter Development Course",
       "issuer": "Udemy",
-      "date": "2025",
+      "date": "2024",
       "url": "https://www.udemy.com/certificate/UC-91a8bd9b-329c-427b-874f-ddce5df7c17b/"
     },
     {
       "name": "Mobile App Development - Android App Development for Beginners",
       "issuer": "Simplilearn",
-      "date": "2025",
+      "date": "2024",
       "url": "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzMjIwIiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvNzkyMDE1M184MjU0NzQ0MTczOTgyMDA4ODE0Ny5wbmciLCJ1c2VybmFtZSI6Ikp1bmFpZCBIb3NzYWluIn0%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F6003%2FMobile-App-Development---Android-App-Development-for-Beginners%2Fcertificate%2Fdownload-skillup&%24web_only=true"
     }
   ]
