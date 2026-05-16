@@ -13,7 +13,7 @@ const { data } = Astro.props;
   <header class="border-b border-gray-200 pb-6 mb-6 print:pb-4 print:mb-4">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 class="text-4xl font-bold mb-2 print:text-3xl">{data.personalInfo.name}</h1>
-      <p class="text-xl text-gray-600 mb-4 print:text-lg">{data.personalInfo.title}</p>
+      <!-- <p class="text-xl text-gray-600 mb-4 print:text-lg">{data.personalInfo.title}</p> -->
       
       <!-- Contact Info -->
       <div class="flex flex-wrap gap-4 text-sm text-gray-600 print:text-xs print:gap-2">
@@ -28,21 +28,13 @@ const { data } = Astro.props;
         {data.personalInfo.location && (
           <span>{data.personalInfo.location}</span>
         )}
-        {data.personalInfo.website && (
-          <a href={data.personalInfo.website} class="hover:text-blue-600 print:no-underline">
-            Website
-          </a>
-        )}
         {data.personalInfo.github && (
-          <a href={data.personalInfo.github} class="hover:text-blue-600 print:no-underline">
-            GitHub
-          </a>
+          <span>{data.personalInfo.github}</span>
         )}
         {data.personalInfo.linkedin && (
-          <a href={data.personalInfo.linkedin} class="hover:text-blue-600 print:no-underline">
-            LinkedIn
-          </a>
+          <span>{data.personalInfo.linkedin}</span>
         )}
+        
       </div>
     </div>
   </header>
@@ -158,11 +150,11 @@ const { data } = Astro.props;
                 </div>
                 <span class="text-sm text-gray-500 whitespace-nowrap print:text-xs">{cert.date}</span>
               </div>
-              {cert.url && (
+              {/* {cert.url && (
                 <a href={cert.url} class="text-blue-600 hover:underline text-sm print:text-xs print:no-underline">
                   View Certificate
                 </a>
-              )}
+              )} */}
             </div>
           ))}
         </div>
