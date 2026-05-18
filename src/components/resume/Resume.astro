@@ -16,23 +16,26 @@ const { data } = Astro.props;
       <!-- <p class="text-xl text-gray-600 mb-4 print:text-lg">{data.personalInfo.title}</p> -->
       
       <!-- Contact Info -->
-      <div class="flex flex-wrap gap-4 text-sm text-gray-600 print:text-xs print:gap-2">
+      <div class="flex flex-col gap-1 text-sm text-gray-600 print:text-xs print:gap-0.5">
         {data.personalInfo.email && (
-          <a href={`mailto:${data.personalInfo.email}`} class="hover:text-blue-600 print:no-underline">
-            {data.personalInfo.email}
+          <a href={`mailto:${data.personalInfo.email}`} class="block hover:text-blue-600 print:no-underline">
+            Email: {data.personalInfo.email}
           </a>
         )}
         {data.personalInfo.phone && (
-          <span>{data.personalInfo.phone}</span>
+          <span class="block">Phone: {data.personalInfo.phone}</span>
         )}
         {data.personalInfo.location && (
-          <span>{data.personalInfo.location}</span>
+          <span class="block">Address: {data.personalInfo.location}</span>
+        )}
+        {data.personalInfo.website && (
+          <span class="block">Website: {data.personalInfo.website}</span>
         )}
         {data.personalInfo.github && (
-          <span>{data.personalInfo.github}</span>
+          <span class="block">GitHub: {data.personalInfo.github}</span>
         )}
         {data.personalInfo.linkedin && (
-          <span>{data.personalInfo.linkedin}</span>
+          <span class="block">LinkedIn: {data.personalInfo.linkedin}</span>
         )}
         
       </div>
@@ -204,6 +207,10 @@ const { data } = Astro.props;
 </div>
 
 <style>
+  .resume-sheet {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
   @media print {
     .resume-sheet {
       display: block;

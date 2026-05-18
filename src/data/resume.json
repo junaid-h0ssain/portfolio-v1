@@ -5,7 +5,7 @@
     "email": "junaid0182@outlook.com",
     "phone": "+880 1705150710",
     "location": "181/E, Halishahar, Chittagong, Bangladesh.",
-    "website": "https://junaid-h0ssain.github.io/",
+    "website": "https://junaid-h0ssain.github.io",
     "github": "github.com/junaid-h0ssain",
     "linkedin": "linkedin.com/in/junaid-h0ssain"
   },
@@ -66,11 +66,11 @@
   "skills": [
     {
       "category": "Programming",
-      "skills": ["Java", "Typescript", "Python", "GO"]
+      "skills": ["Java", "Typescript", "C", "Python", "GO"]
     },
     {
       "category": "IT",
-      "skills": ["Docker", "Git", "GitHub", "Linux (Fedora, Ubuntu)"]
+      "skills": ["Docker", "Git", "GitHub", "Arduino", "ESP32", "Linux (Fedora, Ubuntu)"]
     },
     {
       "category": "Administrative",
@@ -78,7 +78,7 @@
     },
     {
       "category": "Software",
-      "skills": ["Visual Studio Code", "IntelliJ IDEA", "MySQL Workbench", "Postman", "DB Browser"]
+      "skills": ["IntelliJ IDEA", "MySQL Workbench", "Postman", "DB Browser"]
     }
   ],
   "certifications": [
