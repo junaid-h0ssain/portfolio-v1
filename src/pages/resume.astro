@@ -24,7 +24,7 @@ const data: ResumeData = resumeData;
     <style>
       @media print {
         @page {
-          margin: 0.35in;
+          margin: 0.25in;
           size: letter;
         }
       
@@ -38,7 +38,7 @@ const data: ResumeData = resumeData;
   </head>
   
   <main
-    class="min-h-screen bg-white py-8 text-black print:bg-white print:py-0 print:text-black"
+    class="min-h-screen bg-white py-8 text-black print:min-h-0 print:bg-white print:py-0 print:text-black"
   >
     <div class="print:max-w-full">
       <ResumeSection data={data} />

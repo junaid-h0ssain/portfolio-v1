@@ -48,4 +48,6 @@ export interface ResumeData {
   experience: Experience[];
   skills: SkillCategory[];
   certifications?: Certification[];
+  softSkills?: string[];
+  language?: string[];
 }

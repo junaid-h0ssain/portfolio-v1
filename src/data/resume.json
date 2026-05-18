@@ -61,6 +61,18 @@
         "Received Employee of the Month award for outstanding performance"
       ],
       "technologies": []
+    },
+    {
+      "company": "Freelance",
+      "position": "Full Stack Web Developer",
+      "startDate": "2021",
+      "endDate": "2023",
+      "description": "Developed and maintained websites for small business and personal projects, utilizing a variety of technologies to create responsive and user-friendly interfaces",
+      "achievements": [
+        "Successfully completed multiple projects for clients, resulting in positive feedback and repeat business",
+        "Implemented new features and optimized website performance."
+      ],
+      "technologies": ["HTML", "CSS", "JavaScript", "React", "Next.js", "MongoDB", "PostgreSQL", "Drizzle"]
     }
   ],
   "skills": [
